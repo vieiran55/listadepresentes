@@ -1,0 +1,12 @@
+.corpo{
+  @apply flex flex-col w-full;
+  &__cartao{
+    @apply flex flex-col text-center w-1/2 self-center;
+    &__imagem{
+      @apply w-full h-full;
+    }
+    &__botao{
+      @apply bg-green-600;
+    }
+  }
+}
