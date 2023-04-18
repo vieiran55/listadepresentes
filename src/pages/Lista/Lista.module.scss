@@ -1,0 +1,15 @@
+.corpo{
+  @apply h-full flex flex-col items-center;
+  &__titulo{
+    @apply text-center font-bold text-xl;
+  }
+  &__lista{
+    @apply my-2 text-center w-10/12 flex flex-col items-center;
+    &__item{
+      @apply my-1 bg-blue-600 h-10 text-lg w-full flex;
+      &__link{
+        @apply bg-red-600 w-full h-full;
+      }
+    }
+  }
+}
