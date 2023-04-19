@@ -4,6 +4,7 @@
     "title": "Batedeira",
     "link": "https://www.zoom.com.br/batedeira/batedeira-planetaria-philco-php500-turbo?_lc=11",
     "photo": "/assets/imagesLista/batedeiraplanetaria.png",
+    "status": "disponivel",
     "price": 259.09
   },
   {
@@ -11,20 +12,23 @@
     "title": "Liquidificador",
     "link": "https://www.zoom.com.br/liquidificador/liquidificador-philco-turbo-plq1350-3-litros-12-velocidades-1-200-w?_lc=88&searchterm=liquidificador%20220volts",
     "photo": "/assets/imagesLista/liquidificadorphilco.png",
+    "status": "indisponivel",
     "price": 179.99
   },
   {
     "id": 3,
     "title": "Forno Elétrico",
-    "link": "https://philco.com.br/forno-eletrico-pfe48ip-127v-out-056101119out/p?idsku=21456&gclid=CjwKCAjw3POhBhBQEiwAqTCuBvnGVR3QFsKcLrkv1uZCRJweNR7S2V8E6D_FOaief3ZkBbBY5t88TBoCpdcQAvD_BwE",
+    "link": "https://www.americanas.com.br/produto/2884677737?cor=Preto%20Fosco&voltagem=220&condition=NEW",
     "photo": "/assets/imagesLista/FornoEletricoPhilco.png",
-    "price": 369.99
+    "status": "disponivel",
+    "price": 557.99
   },
   {
     "id": 4,
     "title": "Aparelho de Jantar Grecia",
     "link": "https://www.magazineluiza.com.br/aparelho-de-jantar-e-cha-20-pecas-donna-grecia-biona/p/7656037/ud/apja/",
     "photo": "/assets/imagesLista/aparelhodejantarGrecia.png",
+    "status": "disponivel",
     "price": 198.93
   },
   {
@@ -32,6 +36,7 @@
     "title": "Porta Temperos",
     "link": "https://www.amazon.com.br/Porta-Temperos-Condimentos-Giratório-Cozinha/dp/B09RNDG9ST/ref=asc_df_B09RNDG9ST/?tag=googleshopp06-20&linkCode=df0&hvadid=379729859262&hvpos=&hvnetw=g&hvrand=14737955642214028582&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9101764&hvtargid=pla-1664932716132&psc=1",
     "photo": "/assets/imagesLista/portatemperos.png",
+    "status": "disponivel",
     "price": 84.99
   },
   {
@@ -39,6 +44,7 @@
     "title": "Jogo de Frigideiras",
     "link": "https://www.zoom.com.br/panelas/jogo-frigideira-aluminio-2-pecas-sicilia-tramontina?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
     "photo": "/assets/imagesLista/jogodefrigideiras.png",
+    "status": "disponivel",
     "price": 204.99
   },
   {
@@ -46,6 +52,7 @@
     "title": "Panela de Pressão",
     "link": "https://www.zoom.com.br/panela-pressao/panela-de-pressao-panelux-4-5-l-44624?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
     "photo": "/assets/imagesLista/panelapressao.png",
+    "status": "disponivel",
     "price": 141.24
   },
   {
@@ -53,6 +60,7 @@
     "title": "Jogo de Talher 24 Peças",
     "link": "https://www.zoom.com.br/faqueiro/jogo-de-talher-faqueiro-24-pecas-inox-buzios-tramontina?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
     "photo": "/assets/imagesLista/joogodetalher.png",
+    "status": "disponivel",
     "price": 84.32
   },
   {
@@ -60,6 +68,7 @@
     "title": "4 Potes de Vidro",
     "link": "https://www.zoom.com.br/potes-mantimentos/4-potes-de-vidro-hermeticos-com-tampa-de-bambu-electrolux?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
     "photo": "/assets/imagesLista/4potesdevidro.png",
+    "status": "disponivel",
     "price": 171.96
   },
   {
@@ -67,6 +76,7 @@
     "title": "Conjunto Kit De Utensílios De Cozinha 10 Peças",
     "link": "https://www.zoom.com.br/utensilios-cozinha/conjunto-kit-de-utensilios-de-cozinha-10-pecas-silicone-inox?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
     "photo": "/assets/imagesLista/kitutensilios.png",
+    "status": "disponivel",
     "price": 104.99
   },
   {
@@ -74,6 +84,7 @@
     "title": "Kit 2 Petisqueira De Bambu C/ Divisória C/ 7 Espaços Redonda",
     "link": "https://www.magazineluiza.com.br/kit-2-petisqueira-de-bambu-c-divisoria-c-7-espacos-redonda-loja-coisaria/p/cggg68370g/ud/peti/",
     "photo": "/assets/imagesLista/kitpestisqueira.png",
+    "status": "disponivel",
     "price": 57.89
   },
   {
@@ -81,6 +92,7 @@
     "title": "Forma Filetada 1,3L Travessa Vidro Temperado Marinex - 3 Un",
     "link": "https://www.magazineluiza.com.br/forma-filetada-13l-travessa-vidro-temperado-marinex-3-un-nadir-figueiredo/p/kh14jb1ggh/ud/trav/",
     "photo": "/assets/imagesLista/formafiletada.png",
+    "status": "disponivel",
     "price": 89.91
   },
   {
@@ -88,6 +100,7 @@
     "title": "Assadeira Travessa Retangular Vidro Com Tampa 1,6L Marinex",
     "link": "https://www.magazineluiza.com.br/assadeira-travessa-retangular-vidro-com-tampa-16l-marinex/p/fcb667ch66/ud/fabo/",
     "photo": "/assets/imagesLista/assadeiratravessa.png",
+    "status": "disponivel",
     "price": 58.41
   },
   {
@@ -95,6 +108,7 @@
     "title": "Conjunto de Assadeiras Tramontina Brasil",
     "link": "https://m.casasbahia.com.br/conjunto-de-assadeiras-tramontina-brasil-5-pecas-13624782/p/13624782?utm_medium=Cpc&utm_source=GP_PLA&IdSku=13624782&idLojista=10037&tipoLojista=1P&&utm_campaign=gg_pmax_inter_utld_apostas&gclid=CjwKCAjw3POhBhBQEiwAqTCuBvVCUIqDC9GY11yPzio6nbTdNGNCJxkt7tozZFu8kqmEUF7JzUfN0xoCsqgQAvD_BwE&gclsrc=aw.ds",
     "photo": "/assets/imagesLista/conjuntoassadeiras.png",
+    "status": "disponivel",
     "price": 164.99
   },
   {
@@ -102,6 +116,7 @@
     "title": "Kit 3 Formas Para Bolo Torta antiaderente C/ Fundo Removível",
     "link": "https://www.magazineluiza.com.br/kit-3-formas-para-bolo-torta-antiaderente-c-fundo-removivel-em-casa-tem/p/hf5fh836ga/ud/cjfa/?&seller_id=frlimashop&utm_source=google&utm_medium=pla&utm_campaign=&partner_id=70403&gclid=CjwKCAjw3POhBhBQEiwAqTCuBtUhTIEjRZM7A1gJXxkk5jneKkcwxWtfi1YDh97ideRDFUHedzijNxoCqJYQAvD_BwE&gclsrc=aw.ds",
     "photo": "/assets/imagesLista/kit3formasparabolo.png",
+    "status": "disponivel",
     "price": 99.92
   },
   {
@@ -109,6 +124,7 @@
     "title": "Conjunto de Panelas Tramontina Alumínio 5 peça(s) Turim 20298/761 Antiaderente",
     "link": "https://www.zoom.com.br/panelas/conjunto-de-panelas-aluminio-5-peca-s-tramontina-turim-20298-761?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
     "photo": "/assets/imagesLista/conjuntodepanelastramontina5pecas.png",
+    "status": "disponivel",
     "price": 243.48
   },
   {
@@ -116,6 +132,7 @@
     "title": "Kit com 2 Potes de Vidro para Mantimentos com Tampa de Bambu 2L - Oikos",
     "link": "https://www.magazinevoce.com.br/magazinepromosdarafa/kit-com-2-potes-de-vidro-para-mantimentos-com-tampa-de-bambu-2l-oikos/p/aj1185jj67/ud/porm/",
     "photo": "/assets/imagesLista/kitpotesdevidro.png",
+    "status": "disponivel",
     "price": 97.09
   },
   {
@@ -123,6 +140,55 @@
     "title": "Aparelho de Jantar e Chá 20 peças",
     "link": "https://www.amazon.com.br/dp/B07GJTCTZN/ref=asc_df_B07GJTCTZN1681628400000?ie=UTF8&condition=new&creative=380345&creativeASIN=B07GJTCTZN&linkCode=asm&tag=zoom059-20&ascsubtag=d079dbdea9e1485299cca490ab809e9f",
     "photo": "/assets/imagesLista/aparelhodejantarEnergyTB.png",
+    "status": "disponivel",
     "price": 259.99
+  },
+  {
+    "id": 19,
+    "title": "Jogo de 6 Taças Diamond 300mL Clear - Transparente",
+    "link": "https://www.amazon.com.br/dp/B094W14YP7/ref=asc_df_B094W14YP71681826400000?ie=UTF8&condition=new&creative=380345&creativeASIN=B094W14YP7&linkCode=asm&tag=zoom059-20&ascsubtag=20b2bb67c025455294b5a70a1e8f1eff",
+    "photo": "/assets/imagesLista/jogode6tacas.png",
+    "status": "disponivel",
+    "price": 98.99
+  },
+  {
+    "id": 20,
+    "title": "Jogo de Lençol 3 pçs Ponto Palito Queen Percal 200 Fios 100% Algodão",
+    "link": "https://www.zoom.com.br/lencol-jogo-cama/jogo-de-lencol-3-pcs-ponto-palito-queen-percal-200-fios-100-algodao?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
+    "photo": "/assets/imagesLista/jogodelencol.png",
+    "status": "disponivel",
+    "price": 89.99
+  },
+  {
+    "id": 21,
+    "title": "Jogo 2 Peças Travesseiro Nasa - Antialergico - Toque Macio - Valenci",
+    "link": "https://www.zoom.com.br/travesseiro/jogo-2-pecas-travesseiro-nasa-antialergico-toque-macio-valencia?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
+    "photo": "/assets/imagesLista/travesseiro.png",
+    "status": "disponivel",
+    "price": 116.99
+  },
+  {
+    "id": 22,
+    "title": "Kit 5 Facas Aço Inox Hauskraft Essential Conjunto Jogo Cepo",
+    "link": "https://www.magazineluiza.com.br/kit-5-facas-aco-inox-hauskraft-essential-conjunto-jogo-cepo/p/dge2b58f9e/ud/ucep/?partner_id=64852&utm_source=pdp_mobile&utm_medium=share",
+    "photo": "/assets/imagesLista/faca.png",
+    "status": "disponivel",
+    "price": 137.99
+  },
+  {
+    "id": 23,
+    "title": "Escorredor Dobrável c/Madeira Teca, Stolf",
+    "link": "https://www.amazon.com.br/dp/B0842WCDL5?ref_=cm_sw_r_mwn_dp_CV74FMQ2240FRCNT8MYM",
+    "photo": "/assets/imagesLista/escorredor.png",
+    "status": "disponivel",
+    "price": 108.99
+  },
+  {
+    "id": 24,
+    "title": "Kit 7 Peças Fatiador Cortador Picador De Legumes Elétrico Portátil Usb - Jodi",
+    "link": "https://m.magazineluiza.com.br/kit-7-pecas-fatiador-cortador-picador-de-legumes-eletrico-portatil-usb-jodi/p/ae0k2cc27f/pi/clid/?partner_id=64852&utm_source=pdp_mobile&utm_medium=share",
+    "photo": "/assets/imagesLista/fatiador.png",
+    "status": "disponivel",
+    "price": 88.99
   }
 ]
