@@ -15,6 +15,9 @@ module.exports = {
         claro: "#C5DFFF",
         escuro: "#061E3C",
         hover: "#1057B0",
+        azulMarinho: "#3772FF",
+        ateneoBlue: "#0A4D68",
+        metallicSeaweed: "#088395"
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

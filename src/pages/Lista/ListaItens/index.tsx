@@ -17,9 +17,9 @@ export default function ListaItens(props: Props) {
   return (
     <div className={estilos.corpo__card}>
       <li className={estilos.corpo__lista__item}>
+        <h1 className={estilos.corpo__lista__item__titulo}>{title.substring(0,30)}</h1>
         <img className={estilos.corpo__lista__item__imagem} src={photo} alt={title}/>
-        <h1 className={estilos.corpo__lista__item__titulo}>{title}</h1>
-        <h2 className={estilos.corpo__lista__item__preco}>{price}</h2>
+        <h2 className={estilos.corpo__lista__item__preco}>{`R$ ${price}`}</h2>
         <div className={estilos.corpo__lista__item__acoes}>
           <Link className={estilos.corpo__lista__item__acoes__link} to={link}>
             Quero Comprar e entregar para os noivos
@@ -28,6 +28,8 @@ export default function ListaItens(props: Props) {
             Quero Fazer o Pix do valor para que os noivos comprem
           </Link>
         </div>
+        <Link to={"https://form.respondi.app/LdirwZxI"} className={estilos.corpo__lista__item__confirmar}>Confirmar
+        </Link>
       </li>
     </div>
   );

@@ -4,21 +4,21 @@
     "title": "Batedeira",
     "link": "https://www.zoom.com.br/batedeira/batedeira-planetaria-philco-php500-turbo?_lc=11",
     "photo": "/assets/imagesLista/batedeiraplanetaria.png",
-    "price": 259.00
+    "price": 259.09
   },
   {
     "id": 2,
     "title": "Liquidificador",
     "link": "https://www.zoom.com.br/liquidificador/liquidificador-philco-turbo-plq1350-3-litros-12-velocidades-1-200-w?_lc=88&searchterm=liquidificador%20220volts",
-    "photo": "/assets/imagesLista/liquidificadorphilco.jpg",
-    "price": 179.90
+    "photo": "/assets/imagesLista/liquidificadorphilco.png",
+    "price": 179.99
   },
   {
     "id": 3,
     "title": "Forno Elétrico",
     "link": "https://philco.com.br/forno-eletrico-pfe48ip-127v-out-056101119out/p?idsku=21456&gclid=CjwKCAjw3POhBhBQEiwAqTCuBvnGVR3QFsKcLrkv1uZCRJweNR7S2V8E6D_FOaief3ZkBbBY5t88TBoCpdcQAvD_BwE",
     "photo": "/assets/imagesLista/FornoEletricoPhilco.png",
-    "price": 369.90
+    "price": 369.99
   },
   {
     "id": 4,
@@ -38,43 +38,43 @@
     "id": 6,
     "title": "Jogo de Frigideiras",
     "link": "https://www.zoom.com.br/panelas/jogo-frigideira-aluminio-2-pecas-sicilia-tramontina?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
-    "photo": "/assets/imagesLista/jogodefrigideiras.jpg",
-    "price": 204.90
+    "photo": "/assets/imagesLista/jogodefrigideiras.png",
+    "price": 204.99
   },
   {
     "id": 7,
     "title": "Panela de Pressão",
     "link": "https://www.zoom.com.br/panela-pressao/panela-de-pressao-panelux-4-5-l-44624?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
-    "photo": "/assets/imagesLista/panelapressao.jpg",
+    "photo": "/assets/imagesLista/panelapressao.png",
     "price": 141.24
   },
   {
     "id": 8,
     "title": "Jogo de Talher 24 Peças",
     "link": "https://www.zoom.com.br/faqueiro/jogo-de-talher-faqueiro-24-pecas-inox-buzios-tramontina?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
-    "photo": "/assets/imagesLista/joogodetalher.jpg",
+    "photo": "/assets/imagesLista/joogodetalher.png",
     "price": 84.32
   },
   {
     "id": 9,
     "title": "4 Potes de Vidro",
     "link": "https://www.zoom.com.br/potes-mantimentos/4-potes-de-vidro-hermeticos-com-tampa-de-bambu-electrolux?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
-    "photo": "/assets/imagesLista/4potesdevidro.jpg",
+    "photo": "/assets/imagesLista/4potesdevidro.png",
     "price": 171.96
   },
   {
     "id": 10,
     "title": "Conjunto Kit De Utensílios De Cozinha 10 Peças",
     "link": "https://www.zoom.com.br/utensilios-cozinha/conjunto-kit-de-utensilios-de-cozinha-10-pecas-silicone-inox?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
-    "photo": "/assets/imagesLista/kitutensilios.jpg",
-    "price": 104.90
+    "photo": "/assets/imagesLista/kitutensilios.png",
+    "price": 104.99
   },
   {
     "id": 11,
     "title": "Kit 2 Petisqueira De Bambu C/ Divisória C/ 7 Espaços Redonda",
     "link": "https://www.magazineluiza.com.br/kit-2-petisqueira-de-bambu-c-divisoria-c-7-espacos-redonda-loja-coisaria/p/cggg68370g/ud/peti/",
     "photo": "/assets/imagesLista/kitpestisqueira.png",
-    "price": 57.80
+    "price": 57.89
   },
   {
     "id": 12,
@@ -95,7 +95,7 @@
     "title": "Conjunto de Assadeiras Tramontina Brasil",
     "link": "https://m.casasbahia.com.br/conjunto-de-assadeiras-tramontina-brasil-5-pecas-13624782/p/13624782?utm_medium=Cpc&utm_source=GP_PLA&IdSku=13624782&idLojista=10037&tipoLojista=1P&&utm_campaign=gg_pmax_inter_utld_apostas&gclid=CjwKCAjw3POhBhBQEiwAqTCuBvVCUIqDC9GY11yPzio6nbTdNGNCJxkt7tozZFu8kqmEUF7JzUfN0xoCsqgQAvD_BwE&gclsrc=aw.ds",
     "photo": "/assets/imagesLista/conjuntoassadeiras.png",
-    "price": 164.90
+    "price": 164.99
   },
   {
     "id": 15,
@@ -108,7 +108,7 @@
     "id": 16,
     "title": "Conjunto de Panelas Tramontina Alumínio 5 peça(s) Turim 20298/761 Antiaderente",
     "link": "https://www.zoom.com.br/panelas/conjunto-de-panelas-aluminio-5-peca-s-tramontina-turim-20298-761?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
-    "photo": "/assets/imagesLista/conjuntodepanelastramontina5pecas.jpg",
+    "photo": "/assets/imagesLista/conjuntodepanelastramontina5pecas.png",
     "price": 243.48
   },
   {
@@ -123,6 +123,6 @@
     "title": "Aparelho de Jantar e Chá 20 peças",
     "link": "https://www.amazon.com.br/dp/B07GJTCTZN/ref=asc_df_B07GJTCTZN1681628400000?ie=UTF8&condition=new&creative=380345&creativeASIN=B07GJTCTZN&linkCode=asm&tag=zoom059-20&ascsubtag=d079dbdea9e1485299cca490ab809e9f",
     "photo": "/assets/imagesLista/aparelhodejantarEnergyTB.png",
-    "price": 259.90
+    "price": 259.99
   }
 ]
