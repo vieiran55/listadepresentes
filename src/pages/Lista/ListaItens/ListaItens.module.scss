@@ -1,3 +1,6 @@
+@import "../../../styles/variaveis";
+@import "../../../styles/breakpoints";
+
 @mixin card($status, $status1) {
   background-color: $status;
   background-image: linear-gradient(0deg, $status 0%, $status1 39%);
@@ -8,7 +11,7 @@
   place-content: center;
   place-items: center;
   overflow: hidden;
-  @apply w-80 h-[27rem] rounded-3xl my-4;
+  @apply w-80 h-[27rem] rounded-3xl my-4 mx-8;
 }
 
 .corpo__disponivel {
@@ -49,7 +52,7 @@
 }
 
 .corpo__lista__item {
-  z-index: 9999;
+  z-index: 9;
   @apply text-center flex flex-col py-1 items-center;
   &__imagem {
     @apply w-48 h-48 p-2;

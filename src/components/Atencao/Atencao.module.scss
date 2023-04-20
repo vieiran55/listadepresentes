@@ -1,0 +1,17 @@
+@import "../../styles/variaveis";
+@import "../../styles/breakpoints";
+
+.caixa{
+  @apply w-[90vw] h-[160vw] block;
+  @media screen and (min-width: 400px) {
+    width: 390px;
+    height: 500px;
+  }
+  &__descricao{
+    @apply text-justify;
+    &__destaque{
+      @apply bg-red-600 text-white font-bold;
+    }
+  }
+}
+

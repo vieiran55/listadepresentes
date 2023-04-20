@@ -3,6 +3,7 @@ import estilos from "./Lista.module.scss";
 import listaDeCompras from "../../dados/listadepresentes.json";
 import ListaItens from "./ListaItens";
 import { BsArrowUpCircleFill } from "react-icons/bs";
+import Atencao from "../../components/Atencao";
 
 export default function Lista() {
 
@@ -15,9 +16,10 @@ export default function Lista() {
 
   return (
     <div className={estilos.corpo}>
-      <h1 className={estilos.corpo__casal}>Antonio e Gabriela</h1>
+      <Atencao />
+      <h1 className={estilos.corpo__casal}>Gabriela e Antonio</h1>
+      <h2 className={estilos.corpo__titulo}>LISTA DE PRESENTES</h2>
       <ol className={estilos.corpo__lista}>
-        <h2 className={estilos.corpo__titulo}>Lista de Presentes</h2>
         {listaDeCompras.map((item) => (
           <ListaItens key={item.id} {...item} />
         ))}

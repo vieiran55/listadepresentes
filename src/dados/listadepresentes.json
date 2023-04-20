@@ -26,7 +26,7 @@
   {
     "id": 4,
     "title": "Aparelho de Jantar Grecia",
-    "link": "https://www.magazineluiza.com.br/aparelho-de-jantar-e-cha-20-pecas-donna-grecia-biona/p/7656037/ud/apja/",
+    "link": "https://www.magazineluiza.com.br/aparelho-de-jantar-biona-donna-grecia-20-pecas/p/ef3dejb576/ud/apja/?partner_id=0",
     "photo": "/assets/imagesLista/aparelhodejantarGrecia.png",
     "status": "disponivel",
     "price": 198.93
@@ -144,14 +144,6 @@
     "price": 259.99
   },
   {
-    "id": 19,
-    "title": "Jogo de 6 Taças Diamond 300mL Clear - Transparente",
-    "link": "https://www.amazon.com.br/dp/B094W14YP7/ref=asc_df_B094W14YP71681826400000?ie=UTF8&condition=new&creative=380345&creativeASIN=B094W14YP7&linkCode=asm&tag=zoom059-20&ascsubtag=20b2bb67c025455294b5a70a1e8f1eff",
-    "photo": "/assets/imagesLista/jogode6tacas.png",
-    "status": "disponivel",
-    "price": 98.99
-  },
-  {
     "id": 20,
     "title": "Jogo de Lençol 3 pçs Ponto Palito Queen Percal 200 Fios 100% Algodão",
     "link": "https://www.zoom.com.br/lencol-jogo-cama/jogo-de-lencol-3-pcs-ponto-palito-queen-percal-200-fios-100-algodao?utm_source=share&utm_medium=share_web&utm_campaign=share_prod&lc=305",
@@ -190,5 +182,69 @@
     "photo": "/assets/imagesLista/fatiador.png",
     "status": "disponivel",
     "price": 88.99
+  },
+  {
+    "id": 25,
+    "title": "Jogo De Lençol Casal 03 Peças Percal 400 Fios Macio",
+    "link": "https://www.americanas.com.br/produto/5652766079?cor=Cappuccino&desenho%20do%20tecido=Liso&condition=NEW",
+    "photo": "/assets/imagesLista/jogolencol3pecs.png",
+    "status": "disponivel",
+    "price": 47.99
+  },
+  {
+    "id": 26,
+    "title": "Jogo de cama Casal 6 peças com Edredom e Lençol Casa Dona",
+    "link": "https://www.americanas.com.br/produto/1511106886?cor=Azul%20marinho&condition=NEW",
+    "photo": "/assets/imagesLista/jogolencol6pecs.png",
+    "status": "disponivel",
+    "price": 134.99
+  },
+  {
+    "id": 27,
+    "title": "Jogo De Toalhas Banho E Rosto 4 Peças Zeus Toque Macio Algodão 430g/m2 Trevalla Azul E Rosa",
+    "link": "https://www.americanas.com.br/produto/3306157887",
+    "photo": "/assets/imagesLista/jogodeToalhasbanho.png",
+    "status": "disponivel",
+    "price": 79.99
+  },
+  {
+    "id": 28,
+    "title": "Jogo de Copos de Vidro 350ml 6 Peças Haus - Pavillion",
+    "link": "https://www.magazineluiza.com.br/jogo-de-copos-de-vidro-350ml-6-pecas-haus-pavillion/p/231205400/ud/coco/?seller_id=magazineluiza&utm_source=google&utm_medium=pla&utm_campaign=&partner_id=69736&gclid=CjwKCAjwov6hBhBsEiwAvrvN6JanGLgHZf31Ip-U65LN4EAhfD3CeDpL1nUw2PABsseWkYFV7JuaShoC7hgQAvD_BwE&gclsrc=aw.ds",
+    "photo": "/assets/imagesLista/jogodecopos.png",
+    "status": "disponivel",
+    "price": 67.99
+  },
+  {
+    "id": 29,
+    "title": "Jogo de Panelas Tramontina Turim Antiaderente Grafite - 10 Peças",
+    "link": "https://www.americanas.com.br/produto/27711243",
+    "photo": "/assets/imagesLista/jogoPanelasTramontina.png",
+    "status": "disponivel",
+    "price": 371.99
+  },
+  {
+    "id": 30,
+    "title": "Fritadeira Elétrica sem Óleo/Air Fryer Mondial - AFN-40-BF Preta com Timer",
+    "link": "https://www.magazineluiza.com.br/fritadeira-eletrica-sem-oleo-air-fryer-mondial-afn-40-bf-preta-com-timer/p/236409800/ep/frel/?seller_id=magazineluiza&utm_source=google&utm_medium=pla&utm_campaign=&partner_id=68974&gclid=CjwKCAjwov6hBhBsEiwAvrvN6Ia9DJEEZrBNlEyCXxltCuhOcvR90LvEcnwRx__77E-6RnHgx6ZPihoCApcQAvD_BwE&gclsrc=aw.ds",
+    "photo": "/assets/imagesLista/FritadeiraEletrica.png",
+    "status": "disponivel",
+    "price": 371.99
+  },
+  {
+    "id": 31,
+    "title": "Conjunto de Utensílios Inox Brinox - Preparo Top Pratic 13 Peças",
+    "link": "https://www.magazineluiza.com.br/conjunto-de-utensilios-inox-brinox-preparo-top-pratic-13-pecas/p/143396700/ud/cjtu/?seller_id=magazineluiza&utm_source=google&utm_medium=pla&utm_campaign=&partner_id=69736&gclid=CjwKCAjwov6hBhBsEiwAvrvN6MIgYDvykoaS21PtnM-gp1h4K8q--Ehly7zZOuB5epT1h1bqqmwaehoCkuAQAvD_BwE&gclsrc=aw.ds",
+    "photo": "/assets/imagesLista/conjuntoDeUtensilios.png",
+    "status": "disponivel",
+    "price": 75.99
+  },
+  {
+    "id": 32,
+    "title": "Jogo de Taças com Jarra de Vidro 7 Peças - Haus Bico de Jaca Empire",
+    "link": "https://www.magazineluiza.com.br/jogo-de-tacas-com-jarra-de-vidro-7-pecas-haus-bico-de-jaca-empire/p/142270200/ud/jarr/?seller_id=magazineluiza&utm_source=google&utm_medium=pla&utm_campaign=&partner_id=69736&gclid=CjwKCAjwov6hBhBsEiwAvrvN6J4Vnr74d34W-Te5ERKL87YMuta4Mc4US1_3AwgDos3snSOE6Ekh2BoC88EQAvD_BwE&gclsrc=aw.ds",
+    "photo": "/assets/imagesLista/jogodetacasJarra.png",
+    "status": "disponivel",
+    "price": 102.99
   }
 ]
