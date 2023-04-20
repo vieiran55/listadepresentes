@@ -51,7 +51,7 @@ export default function Atencao(props: Props) {
             id="modal-modal-description"
             sx={{ mt: 2 }}
           >
-            <Typography variant="body1" className={estilos.caixa__descricao__parag}>
+            <Typography variant="body1" className={estilos.caixa__descricao__parag} sx={{ mt: 2, mb:2 }}>
               Clicando em{" "}
               <a className={estilos.caixa__descricao__destaque}>
                 "Quero comprar e entregar para os noivos"
@@ -59,7 +59,7 @@ export default function Atencao(props: Props) {
               você será direcionado para um site onde poderá comprar o presente
               e nos entregar pessoalmente💐
             </Typography>
-            <Typography variant="body1" className={estilos.caixa__descricao__parag}>
+            <Typography variant="body1" className={estilos.caixa__descricao__parag} sx={{ mt: 2, mb:2 }}>
               Caso queira nos presentear em dinheiro, basta clicar em{" "}
               <a className={estilos.caixa__descricao__destaque}>
                 Quero fazer o pix para que os noivos comprem"
@@ -67,7 +67,7 @@ export default function Atencao(props: Props) {
               banco e colar o código na opção <a className={estilos.caixa__descricao__destaque2}>Pix Copia e Cola.</a> Qualquer valor
               será muito bem utilizado 🥰
             </Typography>
-            <Typography variant="body1" className={estilos.caixa__descricao__parag}>
+            <Typography variant="body1" className={estilos.caixa__descricao__parag} sx={{ mt: 2, mb:2 }}>
               Caso já tenha escolhido o presente, clique em{" "}
               <a className={estilos.caixa__descricao__destaque}>
                 "Vou dar esse presente"
