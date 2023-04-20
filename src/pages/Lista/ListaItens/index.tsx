@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import estilos from "./ListaItens.module.scss";
 import listaDeCompras from "../../../dados/listadepresentes.json";
 import { useEffect, useState } from "react";
+import {AiOutlineInfoCircle} from "react-icons/ai";
+import {BiHelpCircle} from "react-icons/bi";
 
 interface Props {
   id: number;
@@ -10,12 +12,15 @@ interface Props {
   photo: string;
   status: string;
   price: number;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function ListaItens(props: Props) {
-  const { id, title, link, photo, price, status } = props;
+  const { id, title, link, photo, price, status, open, setOpen } = props;
   const pix = "https://nubank.com.br/pagar/xw2h0/YToiVhZ4ZT";
   const [isShown, setIsShown] = useState(false);
+  const handleOpen = () => setOpen(true);
 
   useEffect(() => {
     if (status === "disponivel") {
@@ -27,6 +32,7 @@ export default function ListaItens(props: Props) {
     <div className={estilos[`corpo__${status}`]}>
       <span></span>
       <li className={estilos.corpo__lista__item}>
+        <BiHelpCircle className={estilos.corpo__lista__item__icon} onClick={handleOpen}/>
         <h1 className={estilos.corpo__lista__item__titulo}>
           {title.substring(0, 30)}
         </h1>

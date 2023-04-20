@@ -54,6 +54,9 @@
 .corpo__lista__item {
   z-index: 9;
   @apply text-center flex flex-col py-1 items-center;
+  &__icon{
+    @apply h-5 w-5 self-end fill-red-600;
+  }
   &__imagem {
     @apply w-48 h-48 p-2;
   }
