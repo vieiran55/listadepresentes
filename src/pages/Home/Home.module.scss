@@ -1,4 +1,5 @@
 .corpo {
+  margin-bottom: calc(40% + 8px);
   @apply flex flex-col w-full h-max items-center;
 
   &__cartao {

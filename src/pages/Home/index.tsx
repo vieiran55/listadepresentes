@@ -25,7 +25,7 @@ export default function Home() {
         </div>
         <div className={estilos.corpo__cartaoInferior}>
           <h1 className={estilos.corpo__cartaoInferior__casal}>
-            Gabriela e Antonio
+            Gabriela e Antônio
           </h1>
         </div>
         <div>
