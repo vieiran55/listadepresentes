@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Gwendolyn&family=Poppins&display=swap");
+@import "../../styles/variaveis";
+@import "../../styles/breakpoints";
+
+
+.modoDeVizualizacao{
+  @apply flex flex-row h-10 w-14 self-end;
+  &__icon{
+    @apply  h-10 w-10 mx-1;
+  }
+}
+
+.corpo {
+  font-family: "Poppins", sans-serif;
+  background-image: url("../../images/Forma1.svg"),
+    url("../../images/Forma4.png"), url("../../images/Forma4.png"),
+    url("../../images/Forma4.png"), url("../../images/Forma4.png"),
+    url("../../images/Forma4.png");
+  background-repeat: no-repeat;
+  background-position: top left, left 20%, left 50%, left 70%, left 90%,
+    left bottom;
+  @apply h-max flex flex-col items-center;
+  @media screen and (min-width: $tablet) {
+    background-image: url("../../images/FormaMed1.svg"),
+      url("../../images/Forma4.png"), url("../../images/Forma4.png"),
+      url("../../images/Forma4.png"), url("../../images/Forma4.png"),
+      url("../../images/Forma4.png");
+  }
+  @media screen and (min-width: $desktop_xl) {
+    background-image: url("../../images/FormaMed1.svg"),
+      url("../../images/FormaMed3.svg"), url("../../images/FormaMed3.svg"),
+      url("../../images/FormaMed3.svg"), url("../../images/FormaMed3.svg");
+    background-position: top left, right 10%, right 40%, right 70%, right 95%;
+  }
+  &__casal {
+    background-image: url("../../images/ramos.png"),
+      url("../../images/aliancas.png");
+    background-repeat: no-repeat;
+    background-position: bottom, top;
+    background-size: 70%, 15%;
+    font-family: "Gwendolyn", cursive;
+    @apply self-start py-8 px-6 text-4xl text-black mt-1;
+    @media screen and (min-width: $tablet) {
+      background-size: 54%, 12%;
+      @apply text-6xl mt-5;
+    }
+  }
+  &__titulo {
+    font-family: "Michroma", sans-serif;
+    @apply text-center font-bold text-2xl text-azulMarinho mt-16 p-4;
+    @media screen and (min-width: $tablet) {
+    @apply text-4xl;
+    }
+  }
+  &__grade {
+    @apply my-2 text-center w-full flex flex-col items-center;
+    @media screen and (min-width: $desktop_xsm) {
+      @apply flex-row flex-wrap items-center justify-center;
+    }
+  }
+  &__lista {
+    @apply my-2 text-center w-full flex flex-col items-center;
+    @media screen and (min-width: $desktop_xsm) {
+      @apply flex-row flex-wrap items-center justify-center;
+    }
+  }
+}
+
+.botoes__tipo__up {
+  @apply animate-bounce flex flex-col items-center;
+  color: #c5dfff;
+  text-align: center;
+  margin: 1em;
+  margin-bottom: 0;
+  background-color: #fc7071;
+  width: 50%;
+  height: 50px;
+  border: 4px solid #fc7071;
+  border-radius: 1000px;
+  &:hover {
+    background-color: #fc7071;
+  }
+  &:active {
+    background-color: #fc7071;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  @media screen and (min-width: $tablet) {
+    width: 20%;
+  }
+}
+
+.seta {
+  @apply animate-waving-hand h-6;
+}
