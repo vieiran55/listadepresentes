@@ -73,7 +73,7 @@ export default function Atencao(props: Props) {
                 "Vou dar esse presente"
               </a>{" "}
               e preencha os dados para que possamos retirar o presente da nossa
-              lista 💞"
+              lista 💞
             </Typography>
           </Typography>
           <Button
