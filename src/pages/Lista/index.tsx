@@ -1,73 +1,82 @@
-import { Link, useNavigate } from "react-router-dom";
-import estilos from "./Lista.module.scss";
-import listaDeCompras from "../../dados/listadepresentes.json";
-import ListaItens from "./ListaItens";
-import { BsArrowUpCircleFill } from "react-icons/bs";
 import Atencao from "../../components/Atencao";
-import { AiOutlineUnorderedList } from "react-icons/ai";
-import { MdOutlineGridView } from "react-icons/md";
+import Buscador from "../../components/Buscador";
+import ListaDePresentes from "../../components/ListaDePresentes";
+import estilos from "./Lista.module.scss";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { MdOutlineGridView } from "react-icons/md";
+import { AiOutlineUnorderedList } from "react-icons/ai";
+import { BsArrowUpCircleFill } from "react-icons/bs";
 
 interface Props {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  busca: string;
+  setBusca: React.Dispatch<React.SetStateAction<string>>;
+}
+
+interface Opcoes {
+  id: number;
+  title: string;
+  link: string;
+  photo: string;
+  status: string;
+  price: number;
 }
 
 export default function Lista(props: Props) {
-
-  const { open, setOpen } = props;
-
-  const [grid, setGrid] = useState(true);
-  const [lista, setLista] = useState(false);
-
+  const { open, setOpen, busca, setBusca } = props;
+  const [gridCss, setGridCss] = useState(true);
+  const [listaCss, setListaCss] = useState(false);
   const navigate = useNavigate();
-
   const topo = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-
   const handClickLista = () => {
-    setGrid(false);
-    setLista(true);
+    setGridCss(false);
+    setListaCss(true);
   };
-
   const handClickGrid = () => {
-    setGrid(true);
-    setLista(false);
+    setGridCss(true);
+    setListaCss(false);
   };
-
   const classIconGrid = classNames({
-    [estilos.modoDeVizualizacao__iconGrid]: grid,
-    [estilos.modoDeVizualizacao__iconList]: lista
+    [estilos.modoDeVizualizacao__iconGrid]: gridCss,
+    [estilos.modoDeVizualizacao__iconList]: listaCss,
   });
-  
   const classIconList = classNames({
-    [estilos.modoDeVizualizacao__iconGrid]: lista,
-    [estilos.modoDeVizualizacao__iconList]: grid
+    [estilos.modoDeVizualizacao__iconGrid]: listaCss,
+    [estilos.modoDeVizualizacao__iconList]: gridCss,
   });
-
   return (
     <div className={estilos.corpo}>
       <Atencao open={open} setOpen={setOpen} />
-      <h1 className={estilos.corpo__casal} onClick={() => navigate("/")}>Gabriela e Antonio</h1>
+      <h1 className={estilos.corpo__casal} onClick={() => navigate("/")}>
+        Gabriela e Antonio
+      </h1>
       <h2 className={estilos.corpo__titulo}>LISTA DE PRESENTES</h2>
       <div className={classNames({ [estilos.modoDeVizualizacao]: true })}>
+        <Buscador busca={busca} setBusca={setBusca} />
         <MdOutlineGridView className={classIconGrid} onClick={handClickGrid} />
-        <AiOutlineUnorderedList className={classIconList} onClick={handClickLista} />
+        <AiOutlineUnorderedList
+          className={classIconList}
+          onClick={handClickLista}
+        />
       </div>
-      <ol className={classNames({ [estilos.corpo__grade]: grid, [estilos.corpo__lista]: lista })}>
-        {listaDeCompras.map((item) => (
-          <ListaItens key={item.id} {...item} open={open} setOpen={setOpen} grid={grid}
-            setGrid={setGrid}
-            lista={lista}
-            setLista={setLista}
-          />
-        ))}
-      </ol>
+      <ListaDePresentes
+        open={open}
+        setOpen={setOpen}
+        busca={busca}
+        setBusca={setBusca}
+        gridCss={gridCss}
+        setGridCss={setGridCss}
+        listaCss={listaCss}
+        setListaCss={setListaCss}
+      />
       <button className={estilos.botoes__tipo__up} onClick={topo}>
         <BsArrowUpCircleFill />
         VOLTAR AO TOPO

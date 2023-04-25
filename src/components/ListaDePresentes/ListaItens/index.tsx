@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
 import estilos from "./ListaItens.module.scss";
 import estilosModoLista from "./ListaItensModoLista.module.scss";
-import listaDeCompras from "../../../dados/listadepresentes.json";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 import { BiHelpCircle } from "react-icons/bi";
 import classNames from "classnames";
 
@@ -16,70 +14,80 @@ interface Props {
   price: number;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  grid: boolean;
-  setGrid: React.Dispatch<React.SetStateAction<boolean>>;
-  lista: boolean;
-  setLista: React.Dispatch<React.SetStateAction<boolean>>;
+  gridCss: boolean;
+  setGridCss: React.Dispatch<React.SetStateAction<boolean>>;
+  listaCss: boolean;
+  setListaCss: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function ListaItens(props: Props) {
-  const { id, title, link, photo, price, status, open, setOpen, grid, setGrid, lista, setLista } = props;
+  const {
+    id,
+    title,
+    link,
+    photo,
+    price,
+    status,
+    open,
+    setOpen,
+    gridCss,
+    setGridCss,
+    listaCss,
+    setListaCss,
+  } = props;
   const pix = "https://nubank.com.br/pagar/xw2h0/YToiVhZ4ZT";
   const [isShown, setIsShown] = useState(false);
   const handleOpen = () => setOpen(true);
 
-
   const classCorpo = classNames({
-    [estilos[`corpo__${status}`]]: grid,
-    [estilosModoLista[`corpo__${status}`]]: lista
+    [estilos[`corpo__${status}`]]: gridCss,
+    [estilosModoLista[`corpo__${status}`]]: listaCss,
   });
   const classCorpoItem = classNames({
-    [estilos.corpo__grid__item]: grid,
-    [estilosModoLista.corpo__lista__item]: lista
+    [estilos.corpo__grid__item]: gridCss,
+    [estilosModoLista.corpo__lista__item]: listaCss,
   });
   const classCorpoItemTitulo = classNames({
-    [estilos.corpo__grid__item__titulo]: grid,
-    [estilosModoLista.corpo__lista__item__titulo]: lista
+    [estilos.corpo__grid__item__titulo]: gridCss,
+    [estilosModoLista.corpo__lista__item__titulo]: listaCss,
   });
   const classCorpoItemConteiner = classNames({
-    [estilos.corpo__grid__item__conteiner]: grid,
-    [estilosModoLista.corpo__lista__item__conteiner]: lista
+    [estilos.corpo__grid__item__conteiner]: gridCss,
+    [estilosModoLista.corpo__lista__item__conteiner]: listaCss,
   });
   const classCorpoItemImagemPreco = classNames({
-    [estilos.corpo__grid__item__imagemPreco]: grid,
-    [estilosModoLista.corpo__lista__item__imagemPreco]: lista
+    [estilos.corpo__grid__item__imagemPreco]: gridCss,
+    [estilosModoLista.corpo__lista__item__imagemPreco]: listaCss,
   });
 
   const classCorpoItemImagem = classNames({
-    [estilos.corpo__grid__item__imagem]: grid,
-    [estilosModoLista.corpo__lista__item__imagem]: lista
+    [estilos.corpo__grid__item__imagem]: gridCss,
+    [estilosModoLista.corpo__lista__item__imagem]: listaCss,
   });
   const classCorpoItemPreco = classNames({
-    [estilos.corpo__grid__item__preco]: grid,
-    [estilosModoLista.corpo__lista__item__preco]: lista
+    [estilos.corpo__grid__item__preco]: gridCss,
+    [estilosModoLista.corpo__lista__item__preco]: listaCss,
   });
   const classCorpoItemAcoes = classNames({
-    [estilos.corpo__grid__item__acoes]: grid,
-    [estilosModoLista.corpo__lista__item__acoes]: lista
+    [estilos.corpo__grid__item__acoes]: gridCss,
+    [estilosModoLista.corpo__lista__item__acoes]: listaCss,
   });
   const classCorpoItemAcoesForm = classNames({
-    [estilos.corpo__grid__item__acoes__link]: grid,
-    [estilosModoLista.corpo__lista__item__acoes__link]: lista
+    [estilos.corpo__grid__item__acoes__link]: gridCss,
+    [estilosModoLista.corpo__lista__item__acoes__link]: listaCss,
   });
   const classCorpoItemAcoesPix = classNames({
-    [estilos.corpo__grid__item__acoes__pix]: grid,
-    [estilosModoLista.corpo__lista__item__acoes__pix]: lista
+    [estilos.corpo__grid__item__acoes__pix]: gridCss,
+    [estilosModoLista.corpo__lista__item__acoes__pix]: listaCss,
   });
   const classCorpoItemAcoesConfirmar = classNames({
-    [estilos.corpo__grid__item__confirmar]: grid,
-    [estilosModoLista.corpo__lista__item__confirmar]: lista
+    [estilos.corpo__grid__item__confirmar]: gridCss,
+    [estilosModoLista.corpo__lista__item__confirmar]: listaCss,
   });
   const classCorpoItemIcon = classNames({
-    [estilos.corpo__grid__item__icon]: grid,
-    [estilosModoLista.corpo__lista__item__icon]: lista
+    [estilos.corpo__grid__item__icon]: gridCss,
+    [estilosModoLista.corpo__lista__item__icon]: listaCss,
   });
-
-
 
   useEffect(() => {
     if (status === "disponivel") {
@@ -92,19 +100,13 @@ export default function ListaItens(props: Props) {
       <span></span>
       <li className={classCorpoItem}>
         <BiHelpCircle className={classCorpoItemIcon} onClick={handleOpen} />
-        <h1 className={classCorpoItemTitulo}>
-          {title.substring(0, 30)}
-        </h1>
+        <h1 className={classCorpoItemTitulo}>{title.substring(0, 30)}</h1>
         <div className={classCorpoItemConteiner}>
           <div className={classCorpoItemImagemPreco}>
-            <img
-              className={classCorpoItemImagem}
-              src={photo}
-              alt={title}
-            />
-            {isShown &&
+            <img className={classCorpoItemImagem} src={photo} alt={title} />
+            {isShown && (
               <h2 className={classCorpoItemPreco}>{`R$ ${price}`}</h2>
-            }
+            )}
           </div>
           {isShown && (
             <div className={classCorpoItemAcoes}>
@@ -116,14 +118,14 @@ export default function ListaItens(props: Props) {
               </Link>
             </div>
           )}
-          {isShown &&
+          {isShown && (
             <Link
               to={"https://form.respondi.app/LdirwZxI"}
               className={classCorpoItemAcoesConfirmar}
             >
               Vou dar esse presente
             </Link>
-          }
+          )}
         </div>
       </li>
     </div>

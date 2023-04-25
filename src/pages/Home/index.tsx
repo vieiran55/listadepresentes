@@ -37,7 +37,6 @@ export default function Home() {
         <Button variant="contained" className={estilos.corpo__cartaoBotoes__confirma}>
           <Link
             to={linkPresenca}
-            // className={estilos.corpo__cartaoBotoes__confirma}
           >
             Confirmar Presença
           </Link>
@@ -45,11 +44,6 @@ export default function Home() {
         <Button variant="contained" onClick={() => navigate("/lista")} className={estilos.corpo__cartaoBotoes__Lista}>
           Lista de Presentes
         </Button>
-        {/* <button
-          className={estilos.corpo__cartaoBotoes__Lista}
-          onClick={() => navigate("/lista")}
-        >
-        </button> */}
       </div>
     </div>
   );
