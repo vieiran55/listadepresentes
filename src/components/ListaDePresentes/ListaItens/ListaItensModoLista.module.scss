@@ -24,6 +24,35 @@
   @include card(grey, darkgrey);
 }
 
+.corpo__indisponivel span {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 150px;
+  top: 8px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.corpo__indisponivel span::before {
+  content: "indisponível";
+  position: absolute;
+  width: 150%;
+  height: 40px;
+  background-image: linear-gradient(45deg, #ff6547 0%, red 51%, #ff7053 100%);
+  transform: rotate(-11deg) translateY(-10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
+}
+
 .corpo__lista__item {
   z-index: 9;
   @apply text-center flex flex-col py-1 items-center ;
