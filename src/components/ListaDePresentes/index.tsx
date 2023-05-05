@@ -1,8 +1,9 @@
 import estilos from "./ListaDePresentes.module.scss";
-import listaDeCompras from "../../dados/listadepresentes.json";
+
 import ListaItens from "./ListaItens";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
+import { IOpcoes } from "../../interfaces/IOpcoes";
 
 interface Props {
   open: boolean;
@@ -13,6 +14,9 @@ interface Props {
   setGridCss: React.Dispatch<React.SetStateAction<boolean>>;
   listaCss: boolean;
   setListaCss: React.Dispatch<React.SetStateAction<boolean>>;
+  showLista: boolean;
+  setShowLista: React.Dispatch<React.SetStateAction<boolean>>;
+  repositorio: IOpcoes[]
 }
 
 export default function ListaDePresentes(props: Props) {
@@ -25,29 +29,31 @@ export default function ListaDePresentes(props: Props) {
     setGridCss,
     listaCss,
     setListaCss,
+    showLista,
+    setShowLista,
+    repositorio 
   } = props;
 
-  const [lista, setLista] = useState(listaDeCompras);
-  const [showLista, setShowLista] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [lista, setLista] = useState<IOpcoes[]>([]);
 
   function testaBusca(title: string) {
     const regex = new RegExp(busca, "i");
     return regex.test(title);
   }
-
+  
   useEffect(() => {
-    const novaLista = listaDeCompras.filter(
-      (item) => testaBusca(item.title));
-    if(novaLista.length > 0 ){
-      setLista(novaLista);
+    const novaLista = repositorio.filter( (item) => testaBusca(item.title) );
+    setLista(novaLista);
+    if (novaLista.length > 0) {
       setShowLista(true);
       setShowError(false);
-    }else{
-      setShowLista(false);
+    } else {
       setShowError(true);
+      setShowLista(false);
     }
-  }, [busca]);
+  }, [busca, repositorio]);
+
 
   return (
     <div
@@ -56,23 +62,21 @@ export default function ListaDePresentes(props: Props) {
         [estilos.corpo__lista]: listaCss,
       })}
     >
-      {showLista && lista.map((item) => (
-        <ListaItens
-          key={item.id}
-          {...item}
-          open={open}
-          setOpen={setOpen}
-          gridCss={gridCss}
-          setGridCss={setGridCss}
-          listaCss={listaCss}
-          setListaCss={setListaCss}
-        />
-      ))}
-      {showError &&
-        <div>
-          Item não encontrado.
-        </div>
-      }
+      {showLista &&
+        lista.map((item) => (
+          <ListaItens
+            key={item._id}
+            {...item}
+            repositorio={[]}
+            open={open}
+            setOpen={setOpen}
+            gridCss={gridCss}
+            setGridCss={setGridCss}
+            listaCss={listaCss}
+            setListaCss={setListaCss}
+          />
+        ))}
+      {showError && <div>Item não encontrado.</div>}
     </div>
   );
 }

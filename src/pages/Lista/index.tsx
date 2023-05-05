@@ -8,27 +8,28 @@ import { useState } from "react";
 import { MdOutlineGridView } from "react-icons/md";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { BsArrowUpCircleFill } from "react-icons/bs";
+import Repositorio from "../../components/Repositorio";
+import { IOpcoes } from "../../interfaces/IOpcoes";
+
 
 interface Props {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   busca: string;
   setBusca: React.Dispatch<React.SetStateAction<string>>;
+  repositorio: IOpcoes[]
+  setRepositorio: React.Dispatch<React.SetStateAction<IOpcoes[]>>
 }
 
-interface Opcoes {
-  id: number;
-  title: string;
-  link: string;
-  photo: string;
-  status: string;
-  price: number;
-}
+
 
 export default function Lista(props: Props) {
-  const { open, setOpen, busca, setBusca } = props;
+  const { open, setOpen, busca, setBusca, repositorio, setRepositorio } = props;
   const [gridCss, setGridCss] = useState(true);
   const [listaCss, setListaCss] = useState(false);
+  const [showLista, setShowLista] = useState(false);
+
+
   const navigate = useNavigate();
   const topo = () => {
     window.scrollTo({
@@ -52,9 +53,12 @@ export default function Lista(props: Props) {
     [estilos.modoDeVizualizacao__iconGrid]: listaCss,
     [estilos.modoDeVizualizacao__iconList]: gridCss,
   });
+
+
+
   return (
-    <div className={estilos.corpo}>
-      <Atencao open={open} setOpen={setOpen} />
+    <div  className={estilos.corpo}>
+      <Atencao showLista={showLista} setShowLista={setShowLista} open={open} setOpen={setOpen} />
       <h1 className={estilos.corpo__casal} onClick={() => navigate("/")}>
         Gabriela e Antonio
       </h1>
@@ -67,6 +71,7 @@ export default function Lista(props: Props) {
           onClick={handClickLista}
         />
       </div>
+      <Repositorio repositorio={repositorio} setRepositorio={setRepositorio}/>
       <ListaDePresentes
         open={open}
         setOpen={setOpen}
@@ -76,6 +81,8 @@ export default function Lista(props: Props) {
         setGridCss={setGridCss}
         listaCss={listaCss}
         setListaCss={setListaCss}
+        showLista={showLista} setShowLista={setShowLista}
+        repositorio={repositorio}
       />
       <button className={estilos.botoes__tipo__up} onClick={topo}>
         <BsArrowUpCircleFill />

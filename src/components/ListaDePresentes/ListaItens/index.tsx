@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { BiHelpCircle } from "react-icons/bi";
 import classNames from "classnames";
+import { IOpcoes } from "../../../interfaces/IOpcoes";
 
 interface Props {
-  id: number;
+  _id: number;
   title: string;
   link: string;
   photo: string;
@@ -18,11 +19,12 @@ interface Props {
   setGridCss: React.Dispatch<React.SetStateAction<boolean>>;
   listaCss: boolean;
   setListaCss: React.Dispatch<React.SetStateAction<boolean>>;
+  repositorio: IOpcoes[];
 }
 
 export default function ListaItens(props: Props) {
   const {
-    id,
+    _id,
     title,
     link,
     photo,
@@ -34,6 +36,7 @@ export default function ListaItens(props: Props) {
     setGridCss,
     listaCss,
     setListaCss,
+    repositorio
   } = props;
   const pix = "https://nubank.com.br/pagar/xw2h0/YToiVhZ4ZT";
   const [isShown, setIsShown] = useState(false);

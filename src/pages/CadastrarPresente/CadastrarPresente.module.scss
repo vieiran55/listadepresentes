@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Gwendolyn&family=Poppins&display=swap");
+@import "../../styles/variaveis";
+@import "../../styles/breakpoints";
+
+.conteiner{
+  @apply flex w-full flex-col items-center;
+}
+
+.formulario{
+  @apply bg-red-500 flex flex-col w-9/12 items-center justify-center py-4;
+}

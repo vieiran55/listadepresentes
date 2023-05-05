@@ -22,13 +22,18 @@ const style = {
 interface Props{
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  showLista: boolean;
+  setShowLista: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function Atencao(props: Props) {
 
-  const {open, setOpen} = props;
+  const {open, setOpen, showLista, setShowLista} = props;
   // const handleOpen = () => setOpen(false);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setShowLista(true);
+  };
 
   return (
     <div>

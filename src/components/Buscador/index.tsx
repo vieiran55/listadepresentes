@@ -16,7 +16,7 @@ export default function Buscador(props: Props) {
       <input
         className={estilos.buscador__input}
         value={busca}
-        onChange={(evento) => setBusca(evento.target.value)}
+        onChange={evento => setBusca(evento.target.value)}
         placeholder="Pesquisar..."
       />
       {/* aqui é o esquema dos favoritos */}
