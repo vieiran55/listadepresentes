@@ -80,7 +80,7 @@ export default function DeletePresente(props: Props) {
           className={estilos.formularioClose}
           onClick={() => setShowFormDelete(false)}
         />
-        <h1 className={estilos.formularioTitulo}>DELETAR PRESENTE</h1>
+        <h1 className={estilos.formularioTitulo}>DESEJA REALMENTE DELETAR ESTE PRESENTE?</h1>
         <label className={estilos.formularioTitulos}>
           Título:
           <input
@@ -103,14 +103,6 @@ export default function DeletePresente(props: Props) {
             className={estilos.formularioInputs}
             type="text"
             placeholder={status}
-          />
-        </label>
-        <label className={estilos.formularioTitulos}>
-          Foto:
-          <input
-            className={estilos.formularioInputs}
-            type="file"
-            disabled={true}
           />
         </label>
         <Button variant="contained" type="submit">

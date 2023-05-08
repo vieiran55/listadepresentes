@@ -29,6 +29,9 @@
 .formularioInputs{
   @apply w-full;
 }
+.formularioInputs::placeholder{
+  @apply text-sm text-red-600;
+}
 
 .botao{
   @apply flex self-end;
