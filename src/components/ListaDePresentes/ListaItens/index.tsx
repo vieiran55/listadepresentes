@@ -100,7 +100,7 @@ export default function ListaItens(props: Props) {
       <span></span>
       <li className={classCorpoItem}>
         <BiHelpCircle className={classCorpoItemIcon} onClick={handleOpen} />
-        <h1 className={classCorpoItemTitulo}>{title.substring(0, 30)}</h1>
+        <h1 className={classCorpoItemTitulo}>{title.length > 30 ? title.substring(0, 30) + "..." : title}</h1>
         <div className={classCorpoItemConteiner}>
           <div className={classCorpoItemImagemPreco}>
             <img className={classCorpoItemImagem} src={photo} alt={title} />
