@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Lista from "./pages/Lista";
 import { useState } from "react";
 import Rodape from "./components/Rodape";
-import CadastrarPresente from "./pages/CadastrarPresente";
 import GerenciarLista from "./pages/GerenciarLista";
 import { IOpcoes } from "./interfaces/IOpcoes";
 import LoginPage from "./pages/Login";
+import Presenca from "./pages/Presenca";
 
 
 export default function AppRouter() {
@@ -19,7 +19,7 @@ export default function AppRouter() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/lista" element={<Lista open={open} setOpen={setOpen} busca={busca} setBusca={setBusca} repositorio={repositorio} setRepositorio={setRepositorio}/>} />
-        <Route path="/cadastrar" element={<CadastrarPresente />} />
+        <Route path="/presenca" element={<Presenca /> } />
         <Route path="/gerenciar" element={<GerenciarLista repositorio={repositorio} setRepositorio={setRepositorio}/>} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

@@ -2,24 +2,21 @@ import Repositorio from "../../components/Repositorio";
 import { IOpcoes } from "../../interfaces/IOpcoes";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import { styled } from "@mui/material/styles";
+import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import estilos from "./GerenciarLista.module.scss";
-import { SetStateAction, useMemo, useState } from "react";
+import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import PrintIcon from "@mui/icons-material/Print";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { title } from "process";
 import axios from "axios";
 import NovoPresente from "./NovoPresente";
 import DeletePresente from "./DeletePresente";
+import AtualizaPresente from "./AtualizaPresente";
 
 interface Props {
   repositorio: IOpcoes[];
@@ -43,22 +40,10 @@ export default function GerenciarLista(props: Props) {
     return texto;
   }
 
-  const deletarDados = async (id: number) => {
-    try {
-      const response = await axios.delete(
-        `http://localhost:5000/listadepresentes/${id}`
-      );
-      console.log(response.data);
-      alert("deletado");
-      window.location.reload();
-    } catch (error) {
-      alert("Não encontrado");
-      console.error(error);
-    }
-  };
 
   const [showForm, setShowForm] = useState(false);
   const [showFormDelete, setShowFormDelete] = useState(false);
+  const [showFormAtualiza, setShowFormAtualiza] = useState(false);
 
   return (
     <>
@@ -76,6 +61,18 @@ export default function GerenciarLista(props: Props) {
             photo={fotoForm}
             status={statusForm}
             id={idForm}
+          />
+        )}
+        {showFormAtualiza && (
+          <AtualizaPresente
+            showFormAtualiza={showFormAtualiza}
+            setShowFormAtualiza={setShowFormAtualiza}
+            title={tituloForm}
+            link={linkForm}
+            photo={fotoForm}
+            status={statusForm}
+            id={idForm}
+            price={precoForm}
           />
         )}
         LISTA DE PRESENTES
@@ -144,7 +141,13 @@ export default function GerenciarLista(props: Props) {
                           size="small"
                           startIcon={<EditIcon />}
                           onClick={() => {
-                            console.log(item._id);
+                            setShowFormAtualiza(true);
+                            setTituloForm(item.title);
+                            setLinkForm(item.link);
+                            setStatusForm(item.status);
+                            setPrecoForm(item.price);
+                            setFotoForm(item.photo);
+                            setIdForm(item._id);
                           }}
                         >
                           Edit
