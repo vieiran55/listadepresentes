@@ -26,10 +26,9 @@ export default function Presenca() {
         "http://172.22.51.160:5000/listadepresencas",
         dados
       );
-      console.log(response.data);
-      // setTimeout(refresh, 2000);
+      console.log(response);
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 
@@ -63,11 +62,7 @@ export default function Presenca() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    enviarDados({
-      nome: nome,
-      qtd: qtd,
-      pessoas: pessoas,
-    });
+    enviarDados(formValues);
     console.log(formValues);
   };
 
@@ -110,75 +105,78 @@ export default function Presenca() {
 
   return (
     <div className={estilos.conteiner}>
-      <Box
-        component="form"
-        sx={{ width: "500px" }}
-        noValidate
-        autoComplete="off"
-      >
-        <form onSubmit={handleSubmit} className={estilos.formulario}>
-          <TextField label="Nome" variant="outlined" sx={{ width: "90%" }} />
+      <form onSubmit={handleSubmit} className={estilos.formulario}>
+        {/* <TextField
+          label="Nome"
+          variant="outlined"
+          sx={{ width: "90%" }}
+          value={nome}
+          onChange={(e) => handleChange(e.target)}
+        /> */}
+        <label htmlFor="nome">Nome:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          value={nome}
+          onChange={handleChange}
+        />
+        <TextField
+          id="outlined-select-currency"
+          select
+          label="Alguém mais vai com você?"
+          sx={{ width: "90%" }}
+        >
+          {opcoes.map((option) => (
+            <MenuItem
+              key={option.value}
+              onClick={() => setSimNao(option.value)}
+              value={option.value}
+            >
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        {validaQtd && (
           <input
-            type="text"
-            id="nome"
-            name="nome"
-            value={nome}
+            type="number"
+            id="qtd"
+            name="qtd"
+            value={qtd}
             onChange={handleChange}
           />
-          <TextField
-            id="outlined-select-currency"
-            select
-            label="Alguém mais vai com você?"
-            sx={{ width: "90%" }}
-          >
-            {opcoes.map((option) => (
-              <MenuItem
-                key={option.value}
-                onClick={() => setSimNao(option.value)}
-                value={option.value}
-              >
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-          {validaQtd && (
-            <input
-              type="number"
-              id="qtd"
-              name="qtd"
-              value={qtd}
-              onChange={handleChange}
-            />
-          )}
+        )}
 
-          {validaQtd &&
-            Array.from({ length: qtd }).map((_, index) => (
-              <div key={index}>
-                <label htmlFor={`pessoa-${index}`}>Qual o nome da {index + 1}ª Pessoa</label>
-                <input
-                  type="text"
-                  id={`pessoa-${index}`}
-                  name={`pessoa-${index}`}
-                  value={pessoas[index] || ""}
-                  onChange={(e) => handlePessoaChange(index, e.target.value)}
-                />
-              </div>
-            ))}
+        {validaQtd &&
+          Array.from({ length: qtd }).map((_, index) => (
+            <div key={index}>
+              <label htmlFor={`pessoa-${index}`}>
+                Qual o nome da {index + 1}ª Pessoa
+              </label>
+              <input
+                type="text"
+                id={`pessoa-${index}`}
+                name={`pessoa-${index}`}
+                value={pessoas[index] || ""}
+                onChange={(e) => handlePessoaChange(index, e.target.value)}
+              />
+            </div>
+          ))}
 
-          {validaQtd && pessoas.length < qtd && (
-            <button type="button" onClick={handleAddPessoa}>
-              Adicionar Pessoa
-            </button>
-          )}
-          <button type="submit">Enviar</button>
-          <Button
-            variant="contained"
-            className={estilos.corpo__cartaoBotoes__Lista}
-          >
-            CONFIRMAR PRESENÇA
-          </Button>
-        </form>
-      </Box>
+        {validaQtd && pessoas.length < qtd && (
+          <button type="button" onClick={handleAddPessoa}>
+            Adicionar Pessoa
+          </button>
+        )}
+        <button type="submit">Enviar</button>
+        <Button
+          variant="contained"
+          className={estilos.corpo__cartaoBotoes__Lista}
+          type="submit"
+        >
+          CONFIRMAR PRESENÇA
+        </Button>
+      </form>
     </div>
   );
 }
