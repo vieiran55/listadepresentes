@@ -7,6 +7,7 @@ import GerenciarLista from "./pages/GerenciarLista";
 import { IOpcoes } from "./interfaces/IOpcoes";
 import LoginPage from "./pages/Login";
 import Presenca from "./pages/Presenca";
+import GerecniarPresencas from "./pages/GerenciarPresencas";
 
 
 export default function AppRouter() {
@@ -21,6 +22,7 @@ export default function AppRouter() {
         <Route path="/lista" element={<Lista open={open} setOpen={setOpen} busca={busca} setBusca={setBusca} repositorio={repositorio} setRepositorio={setRepositorio}/>} />
         <Route path="/presenca" element={<Presenca /> } />
         <Route path="/gerenciar" element={<GerenciarLista repositorio={repositorio} setRepositorio={setRepositorio}/>} />
+        <Route path="/gerenciarpresencas" element={<GerecniarPresencas/>} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Rodape />

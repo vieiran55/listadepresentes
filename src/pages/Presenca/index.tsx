@@ -1,9 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import estilos from "./Presenca.module.scss";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import { Button, MenuItem } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  SelectChangeEvent,
+  TextField,
+} from "@mui/material";
+import { Select } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert";
 
 interface FormValues {
   nome: string;
@@ -11,172 +19,206 @@ interface FormValues {
   pessoas: string[];
 }
 
-export default function Presenca() {
-  const [formValues, setFormValues] = useState<FormValues>({
-    nome: "",
-    qtd: 0,
-    pessoas: [],
-  });
-  const [validaQtd, setValidaQtd] = useState(false);
-  const [simNao, setSimNao] = useState("");
+interface Convidado {
+  _id: string;
+  nome: string;
+  qtd: number;
+  pessoas: string[];
+  confirmado: boolean;
+  quantidadePessoasSelecionadas: number;
+}
 
-  const enviarDados = async (dados: FormValues) => {
-    try {
-      const response = await axios.post(
-        "http://172.22.51.160:5000/listadepresencas",
-        dados
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+export default function Presenca() {
+  const [convidados, setConvidados] = useState<Convidado[]>([]);
+  const [nomeSelecionado, setNomeSelecionado] = useState("");
+  const [convidadoSelecionado, setConvidadoSelecionado] =
+    useState<Convidado | null>(null);
+  const [mostrarOpcoes, setMostrarOpcoes] = useState(false);
+  const [qtdPessoasAdicionais, setQtdPessoasAdicionais] = useState(0);
+  const [nomesPessoasAdicionais, setNomesPessoasAdicionais] = useState<
+    string[]
+  >([]);
+  const [convidadoIdSelecionado, setConvidadoIdSelecionado] = useState("");
+  const [confirmarPresenca, setConfirmarPresenca] = useState(false);
+  const [campoVazio, setCampoVazio] = useState(true);
+  const isNaoSelecionado = qtdPessoasAdicionais === 0;
+  const isConfirmado = convidadoSelecionado?.confirmado || false;
+
+  useEffect(() => {
+    axios
+      .get<Convidado[]>("http://172.20.100.249:5000/convidados")
+      .then((resposta) => {
+        setConvidados(resposta.data);
+      })
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }, []);
+
+  const handleConfirmation = () => {
+    if (convidadoIdSelecionado && convidadoSelecionado) {
+      const updatedConvidado = {
+        nome: convidadoSelecionado.nome,
+        qtd: nomesPessoasAdicionais.length + 1,
+        confirmado: true,
+        pessoas: [convidadoSelecionado.pessoas[0], ...nomesPessoasAdicionais],
+      };
+
+      axios
+        .put(
+          `http://172.20.100.249:5000/convidados/${convidadoIdSelecionado}`,
+          updatedConvidado
+        )
+        .then((response) => {
+          verificarSucesso();
+          setTimeout(refresh, 4000);
+          console.log("Presença confirmada:", response.data);
+        })
+        .catch((error) => {
+          console.error("Erro ao confirmar presença:", error);
+        });
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const navigate = useNavigate();
 
-    setFormValues((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const refresh = () => {
+    navigate("/");
   };
-
-  const handlePessoaChange = (index: number, value: string) => {
-    setFormValues((prevState) => {
-      const pessoas = [...prevState.pessoas];
-      pessoas[index] = value;
-
-      return {
-        ...prevState,
-        pessoas,
-      };
+  const verificarSucesso = () => {
+    Swal({
+      icon: "success",
+      title: "Sucesso!",
+      text: "Sua presença foi confirmada com sucesso!",
     });
   };
 
-  const handleAddPessoa = () => {
-    setFormValues((prevState) => ({
-      ...prevState,
-      pessoas: [...prevState.pessoas, ""],
-    }));
-  };
+  const handleNameSelect = (event: SelectChangeEvent<string>) => {
+    const selectedName = event.target.value;
+    setNomeSelecionado(selectedName);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    enviarDados(formValues);
-    console.log(formValues);
-  };
+    const selectedGuest =
+      convidados.find((convidado) => convidado.nome === selectedName) || null;
+    setConvidadoSelecionado(selectedGuest);
 
-  useEffect(() => {
-    const novaListaDePessoas = new Array(formValues.qtd).fill("");
-    setFormValues((prevState) => ({
-      ...prevState,
-      pessoas: novaListaDePessoas,
-    }));
-  }, [formValues.qtd]);
-
-  const { nome, qtd, pessoas } = formValues;
-
-  // const validandoQtd = () => {
-  //   if(simNao == "sim"){
-  //     setValidaQtd(true);
-  //   } else {
-  //     setValidaQtd(false);
-  //   }
-  // };
-
-  useEffect(() => {
-    if (simNao === "sim") {
-      setValidaQtd(true);
+    if (selectedGuest) {
+      setConvidadoIdSelecionado(selectedGuest._id);
+      setMostrarOpcoes(true);
     } else {
-      setValidaQtd(false);
+      setConvidadoIdSelecionado("");
+      setMostrarOpcoes(false);
     }
-  }, [simNao]);
+  };
 
-  const opcoes = [
-    {
-      value: "sim",
-      label: "Sim",
-    },
-    {
-      value: "não",
-      label: "Não",
-    },
-  ];
+  const handleChangeNome = (index: number, value: string) => {
+    const nomesAtualizados = [...nomesPessoasAdicionais];
+    nomesAtualizados[index] = value;
+    setNomesPessoasAdicionais(nomesAtualizados);
+
+    verificarCamposVazios();
+    const algumCampoVazio = nomesAtualizados.some((nome) => nome === "");
+    setCampoVazio(algumCampoVazio);
+  };
+
+  const handleChangeQtdPessoasAdicionais = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const selectedValue = Number(event.target.value);
+    setQtdPessoasAdicionais(selectedValue);
+    setNomesPessoasAdicionais(
+      nomesPessoasAdicionais.slice(0, selectedValue - 1)
+    );
+  };
+
+  const verificarCamposVazios = () => {
+    const algumCampoVazio = nomesPessoasAdicionais.some((nome) => nome === "");
+    setCampoVazio(algumCampoVazio);
+  };
 
   return (
-    <div className={estilos.conteiner}>
-      <form onSubmit={handleSubmit} className={estilos.formulario}>
-        {/* <TextField
-          label="Nome"
-          variant="outlined"
-          sx={{ width: "90%" }}
-          value={nome}
-          onChange={(e) => handleChange(e.target)}
-        /> */}
-        <label htmlFor="nome">Nome:</label>
-        <input
-          type="text"
-          id="nome"
-          name="nome"
-          value={nome}
-          onChange={handleChange}
-        />
-        <TextField
-          id="outlined-select-currency"
-          select
-          label="Alguém mais vai com você?"
-          sx={{ width: "90%" }}
+    <div className={estilos.formulario}>
+      <h1 className={estilos.formulario__titulo}>Lista de Convidados</h1>
+      <FormControl sx={{ width: "300px", margin: "10px" }}>
+        <InputLabel id="demo-simple-select-autowidth-label">
+          Selecione seu nome
+        </InputLabel>
+        <Select
+          label="Selecione seu nome"
+          labelId="demo-simple-select-autowidth-label"
+          id="demo-simple-select-autowidth-label"
+          value={nomeSelecionado}
+          onChange={handleNameSelect}
         >
-          {opcoes.map((option) => (
-            <MenuItem
-              key={option.value}
-              onClick={() => setSimNao(option.value)}
-              value={option.value}
-            >
-              {option.label}
+          <MenuItem value="">Selecione...</MenuItem>
+          {convidados.map((convidado) => (
+            <MenuItem key={convidado._id} value={convidado.nome}>
+              {convidado.nome}
             </MenuItem>
           ))}
-        </TextField>
-        {validaQtd && (
-          <input
-            type="number"
-            id="qtd"
-            name="qtd"
-            value={qtd}
-            onChange={handleChange}
-          />
-        )}
-
-        {validaQtd &&
-          Array.from({ length: qtd }).map((_, index) => (
-            <div key={index}>
-              <label htmlFor={`pessoa-${index}`}>
-                Qual o nome da {index + 1}ª Pessoa
-              </label>
-              <input
-                type="text"
-                id={`pessoa-${index}`}
-                name={`pessoa-${index}`}
-                value={pessoas[index] || ""}
-                onChange={(e) => handlePessoaChange(index, e.target.value)}
+        </Select>
+      </FormControl>
+      {mostrarOpcoes && convidadoSelecionado && !isConfirmado && (
+        <div className={estilos.formulario__opcoes}>
+          <TextField
+            id="outlined-select-currency"
+            select
+            label="Alguém mais vai com você?"
+            sx={{ width: "300px", margin: "10px" }}
+            value={qtdPessoasAdicionais}
+            onChange={handleChangeQtdPessoasAdicionais}
+          >
+            <MenuItem value={0}>Não</MenuItem>
+            <MenuItem value={2}>Sim, 1 pessoa</MenuItem>
+            <MenuItem value={3}>Sim, 2 pessoas</MenuItem>
+            <MenuItem value={4}>Sim, 3 pessoas</MenuItem>
+          </TextField>
+          {qtdPessoasAdicionais > 0 && (
+            <div className={estilos.formulario__opcoes}>
+              <TextField
+                id="nome-pessoa-1"
+                label="Nome da 1ª pessoa"
+                value={convidadoSelecionado?.pessoas[0] || ""}
+                disabled
+                sx={{ width: "300px", margin: "10px" }}
               />
+              {[...Array(qtdPessoasAdicionais - 1)].map((_, index) => (
+                <TextField
+                  key={index}
+                  id={`nome-pessoa-${index + 2}`}
+                  label={`Nome da ${index + 2}ª pessoa`}
+                  value={nomesPessoasAdicionais[index] || ""}
+                  onChange={(event) =>
+                    handleChangeNome(index, event.target.value)
+                  }
+                  sx={{ width: "300px", margin: "10px" }}
+                />
+              ))}
             </div>
-          ))}
+          )}
 
-        {validaQtd && pessoas.length < qtd && (
-          <button type="button" onClick={handleAddPessoa}>
-            Adicionar Pessoa
-          </button>
-        )}
-        <button type="submit">Enviar</button>
-        <Button
-          variant="contained"
-          className={estilos.corpo__cartaoBotoes__Lista}
-          type="submit"
-        >
-          CONFIRMAR PRESENÇA
-        </Button>
-      </form>
+          <Button
+            variant="contained"
+            sx={{ margin: "10px" }}
+            onClick={handleConfirmation}
+            disabled={campoVazio && !isNaoSelecionado}
+          >
+            Confirmar Presença
+          </Button>
+        </div>
+      )}
+
+      {isConfirmado && (
+        <div className={estilos.presenca}>
+          <p>Você já confirmou sua presença!</p>
+          <Button
+            variant="contained"
+            sx={{ margin: "50px" }}
+            onClick={() => navigate("/")}
+          >
+            Voltar a Pagina Inicial
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

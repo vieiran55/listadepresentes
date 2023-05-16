@@ -1,7 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Gwendolyn&family=Poppins&display=swap");
+@import "../../styles/variaveis";
+@import "../../styles/breakpoints";
+
 .conteiner{
-  @apply flex flex-col items-center;
+  @apply flex flex-col items-center bg-red-700;
 }
 
 .formulario{
- @apply flex flex-col items-center border-2 w-full;
+ @apply flex flex-col h-[100vh] items-center border-2 w-full;
+ &__titulo {
+   font-family: "Michroma", sans-serif;
+   @apply text-center font-bold text-2xl text-azulMarinho mt-8 p-4;
+   @media screen and (min-width: $tablet) {
+   @apply text-4xl;
+   }
+ }
+ &__opcoes{
+  @apply flex flex-col items-center;
+ }
+}
+
+.presenca{
+  @apply my-6 text-xl text-center font-bold text-green-600;
 }
