@@ -1,5 +1,4 @@
 import estilos from "./ListaDePresentes.module.scss";
-
 import ListaItens from "./ListaItens";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
@@ -16,7 +15,13 @@ interface Props {
   setListaCss: React.Dispatch<React.SetStateAction<boolean>>;
   showLista: boolean;
   setShowLista: React.Dispatch<React.SetStateAction<boolean>>;
-  repositorio: IOpcoes[]
+  repositorio: IOpcoes[];
+  nomePresenteEscolhido: string;
+  setNomePresenteEscolhido: React.Dispatch<React.SetStateAction<string>>;
+  showPresenteEscolhido: boolean;
+  setShowPresenteEscolhido: React.Dispatch<React.SetStateAction<boolean>>;
+  idPresenteEscolhido: number;
+  setIdPresenteEscolhido: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function ListaDePresentes(props: Props) {
@@ -31,7 +36,13 @@ export default function ListaDePresentes(props: Props) {
     setListaCss,
     showLista,
     setShowLista,
-    repositorio 
+    repositorio,
+    nomePresenteEscolhido,
+    setNomePresenteEscolhido,
+    showPresenteEscolhido,
+    setShowPresenteEscolhido,
+    idPresenteEscolhido,
+    setIdPresenteEscolhido,
   } = props;
 
   const [showError, setShowError] = useState(false);
@@ -74,6 +85,11 @@ export default function ListaDePresentes(props: Props) {
             setGridCss={setGridCss}
             listaCss={listaCss}
             setListaCss={setListaCss}
+            nomePresenteEscolhido={nomePresenteEscolhido}
+            setNomePresenteEscolhido={setNomePresenteEscolhido}
+            showPresenteEscolhido={showPresenteEscolhido} setShowPresenteEscolhido={setShowPresenteEscolhido}
+            idPresenteEscolhido={idPresenteEscolhido}
+            setIdPresenteEscolhido={setIdPresenteEscolhido}
           />
         ))}
       {showError && <div>Item não encontrado.</div>}

@@ -46,7 +46,7 @@ export default function AtualizaPresente(props: Props) {
 
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
-      const response = await axios.put(`http://172.22.51.160:5000/listadepresentes/${id}`, dados);
+      const response = await axios.put(`http://172.20.100.249:5000/listadepresentes/${id}`, dados);
       console.log(response.data);
       verificarSucesso();
       setTimeout(refresh, 2000);

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { BiHelpCircle } from "react-icons/bi";
 import classNames from "classnames";
 import { IOpcoes } from "../../../interfaces/IOpcoes";
+import { Button } from "@mui/material";
 
 interface Props {
   _id: number;
@@ -20,6 +21,12 @@ interface Props {
   listaCss: boolean;
   setListaCss: React.Dispatch<React.SetStateAction<boolean>>;
   repositorio: IOpcoes[];
+  nomePresenteEscolhido: string;
+  setNomePresenteEscolhido: React.Dispatch<React.SetStateAction<string>>;
+  showPresenteEscolhido: boolean;
+  setShowPresenteEscolhido: React.Dispatch<React.SetStateAction<boolean>>;
+  idPresenteEscolhido: number;
+  setIdPresenteEscolhido: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function ListaItens(props: Props) {
@@ -36,7 +43,13 @@ export default function ListaItens(props: Props) {
     setGridCss,
     listaCss,
     setListaCss,
-    repositorio
+    repositorio,
+    nomePresenteEscolhido,
+    setNomePresenteEscolhido,
+    showPresenteEscolhido,
+    setShowPresenteEscolhido,
+    idPresenteEscolhido,
+    setIdPresenteEscolhido,
   } = props;
   const pix = "https://nubank.com.br/pagar/xw2h0/YToiVhZ4ZT";
   const [isShown, setIsShown] = useState(false);
@@ -92,6 +105,12 @@ export default function ListaItens(props: Props) {
     [estilosModoLista.corpo__lista__item__icon]: listaCss,
   });
 
+  const handClick = () => {
+    setNomePresenteEscolhido(title);
+    setIdPresenteEscolhido(_id);
+    setShowPresenteEscolhido(true);
+  };
+
   useEffect(() => {
     if (status === "disponivel") {
       setIsShown(true);
@@ -103,7 +122,9 @@ export default function ListaItens(props: Props) {
       <span></span>
       <li className={classCorpoItem}>
         <BiHelpCircle className={classCorpoItemIcon} onClick={handleOpen} />
-        <h1 className={classCorpoItemTitulo}>{title.substring(0, 30)}</h1>
+        <h1 className={classCorpoItemTitulo}>
+          {title?.length > 30 ? title.substring(0, 30) + "..." : title}
+        </h1>
         <div className={classCorpoItemConteiner}>
           <div className={classCorpoItemImagemPreco}>
             <img className={classCorpoItemImagem} src={photo} alt={title} />
@@ -121,13 +142,22 @@ export default function ListaItens(props: Props) {
               </Link>
             </div>
           )}
-          {isShown && (
+          {/* {isShown && (
             <Link
               to={"https://form.respondi.app/LdirwZxI"}
               className={classCorpoItemAcoesConfirmar}
             >
               Vou dar esse presente
             </Link>
+          )} */}
+          {isShown && (
+            <Button
+              variant="contained"
+              onClick={handClick}
+              className={classCorpoItemAcoesConfirmar}
+            >
+              Vou dar esse presente
+            </Button>
           )}
         </div>
       </li>

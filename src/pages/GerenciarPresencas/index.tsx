@@ -82,7 +82,7 @@ export default function GerecniarPresencas() {
             id={idFormPres}
           />
         )}
-        <h1 className={estilos.titulo}>Lista de Convidados</h1>
+        <h1 className={estilos.titulo}>LISTA DE CONVIDADOS</h1>
         <div className={estilos.botaoAdicionar}>
           <Button variant="contained" onClick={() => setShowFormPres(true)}>Adicionar Convidado</Button>
           <h2>Quantidade Total: {somaQtd}</h2>
@@ -120,25 +120,25 @@ export default function GerecniarPresencas() {
                   key={index}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell padding="none">{item._id} </TableCell>
-                  <TableCell padding="none">
+                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>{item._id} </TableCell>
+                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>
                     {limitarTexto(item.nome, 50)}{" "}
                   </TableCell>
-                  <TableCell padding="none">{item.qtd}</TableCell>
-                  <TableCell padding="none">
+                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>{item.qtd}</TableCell>
+                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>
                     {item.pessoas.map((item, index) => (
                       <ol key={index}>
                         <li>-{item}</li>
                       </ol>
                     ))}
                   </TableCell>
-                  <TableCell padding="none">
+                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>
                     {" "}
                     {item.confirmado && (
                       <GoVerified className={estilos.confirmado} />
                     )}
                   </TableCell>
-                  <TableCell padding="none">
+                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>
                     {" "}
                     <Stack spacing={1} sx={{ width: 1, py: 1 }}>
                       <div className={estilos.botoesLista}>

@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import estilos from "./GerenciarLista.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Stack from "@mui/material/Stack";
@@ -32,22 +32,35 @@ export default function GerenciarLista(props: Props) {
   const [precoForm, setPrecoForm] = useState(0);
   const [fotoForm, setFotoForm] = useState("");
   const [idForm, setIdForm] = useState(0);
+  const [listaPresentes, setListaPresentes] = useState<IOpcoes[]>([]);
 
   function limitarTexto(texto: string, maxChars: number): string {
-    if (texto.length > maxChars) {
-      texto = texto.substring(0, maxChars) + "...";
+    if (texto?.length > maxChars) {
+      texto = texto?.substring(0, maxChars) + "...";
     }
     return texto;
   }
-
 
   const [showForm, setShowForm] = useState(false);
   const [showFormDelete, setShowFormDelete] = useState(false);
   const [showFormAtualiza, setShowFormAtualiza] = useState(false);
 
+  useEffect(() => {
+    axios
+      .get<IOpcoes[]>("http://172.20.100.249:5000/listadepresentes")
+      .then((resposta) => {
+        setListaPresentes(resposta.data);
+        console.log(listaPresentes);
+        console.log("estou em repositorio");
+      })
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }, []);
+
   return (
     <>
-      <Repositorio repositorio={repositorio} setRepositorio={setRepositorio} />
+      {/* <Repositorio repositorio={repositorio} setRepositorio={setRepositorio} /> */}
       <div className={estilos.conteiner}>
         {showForm && (
           <NovoPresente showForm={showForm} setShowForm={setShowForm} />
@@ -75,7 +88,7 @@ export default function GerenciarLista(props: Props) {
             price={precoForm}
           />
         )}
-        LISTA DE PRESENTES
+        <h1 className={estilos.titulo}>LISTA DE PRESENTES</h1>
         <div className={estilos.botaoAdicionar}>
           <Button variant="contained" onClick={() => setShowForm(true)}>
             Adicionar Presente
@@ -94,10 +107,10 @@ export default function GerenciarLista(props: Props) {
                 <TableCell padding="none" sx={{ width: 50 }}>
                   ID
                 </TableCell>
-                <TableCell padding="none" sx={{ width: 300 }}>
+                <TableCell padding="none" sx={{ width: 100, maxWidth: 300 }}>
                   Titulo
                 </TableCell>
-                <TableCell padding="none" sx={{ width: 300 }}>
+                <TableCell padding="none" sx={{ width: 700 }}>
                   Link
                 </TableCell>
                 <TableCell padding="none" sx={{ width: 300 }}>
@@ -115,24 +128,53 @@ export default function GerenciarLista(props: Props) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {repositorio.map((item, index) => (
+              {listaPresentes.map((item, index) => (
                 <TableRow
                   key={index}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell padding="none">{item._id} </TableCell>
-                  <TableCell padding="none">
-                    {limitarTexto(item.title, 50)}{" "}
+                  <TableCell
+                    padding="none"
+                    sx={{ width: 100, whiteSpace: "normal" }}
+                  >
+                    {item._id}{" "}
                   </TableCell>
-                  <TableCell padding="none">
-                    {limitarTexto(item.link, 50)}
+                  <TableCell
+                    padding="none"
+                    sx={{ width: 300, whiteSpace: "normal", wordBreak: "break-all" }}
+                  >
+                    {limitarTexto(item.title, 500)}
                   </TableCell>
-                  <TableCell padding="none">
+                  <TableCell
+                    padding="none"
+                    sx={{ width: 300, whiteSpace: "normal", wordBreak: "break-all" }}
+                  >
+                    {limitarTexto(item.link, 500)}
+                  </TableCell>
+                  <TableCell
+                    padding="none"
+                    sx={{ width: 300, whiteSpace: "normal", wordBreak: "break-all" }}
+                  >
                     {limitarTexto(item.photo, 50)}{" "}
                   </TableCell>
-                  <TableCell padding="none"> {item.status}</TableCell>
-                  <TableCell padding="none"> {item.price}</TableCell>
-                  <TableCell padding="none">
+                  <TableCell
+                    padding="none"
+                    sx={{ width: 100, whiteSpace: "normal", wordBreak: "break-all" }}
+                  >
+                    {" "}
+                    {item.status}
+                  </TableCell>
+                  <TableCell
+                    padding="none"
+                    sx={{ width: 100, whiteSpace: "normal", wordBreak: "break-all" }}
+                  >
+                    {" "}
+                    {item.price}
+                  </TableCell>
+                  <TableCell
+                    padding="none"
+                    sx={{ width: 200, whiteSpace: "normal" }}
+                  >
                     {" "}
                     <Stack spacing={1} sx={{ width: 1, py: 1 }}>
                       <div className={estilos.botoesLista}>

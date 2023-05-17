@@ -69,7 +69,7 @@
     @apply text-lg font-bold text-ateneoBlue;
   }
   &__conteiner{
-    @apply flex flex-row items-center h-full w-full;
+    @apply flex flex-row items-center h-[80px] w-full;
   }
   &__imagemPreco{
     @apply text-sm;

@@ -12,10 +12,11 @@ export default function Repositorio({repositorio, setRepositorio}: Props){
   
   useEffect(() => {
     axios
-      .get("http://172.22.51.160:5000/listadepresentes")
+      .get("http://172.20.100.249:5000/listadepresentes")
       .then((resposta) => {
         setRepositorio(resposta.data);
         console.log(repositorio);
+        console.log("estou em repositorio");
       })
       .catch((erro) => { 
         console.log(erro);
