@@ -25,7 +25,7 @@ export default function NovoPresenca(props: Props) {
   const enviarDados = async (dados: Opcoes) => {
     try {
       const response = await axios.post(
-        "http://160.238.36.99:5000/convidados",
+        "https://160.238.36.99:5001/convidados",
         dados
       );
       console.log(response.data);

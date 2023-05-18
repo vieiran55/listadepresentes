@@ -43,7 +43,7 @@ export default function AtualizaPresenca(props: Props) {
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
       const response = await axios.put(
-        `http://160.238.36.99:5000/convidados/${id}`,
+        `https://160.238.36.99:5001/convidados/${id}`,
         dados
       );
       console.log(response.data);

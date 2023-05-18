@@ -36,7 +36,7 @@ export default function GerecniarPresencas() {
 
   useEffect(() => {
     axios
-      .get<IPresencas[]>("http://160.238.36.99:5000/convidados")
+      .get<IPresencas[]>("https://160.238.36.99:5001/convidados")
       .then((resposta) => {
         setConvidados(resposta.data);
       })

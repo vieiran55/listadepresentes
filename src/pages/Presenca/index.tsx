@@ -46,7 +46,7 @@ export default function Presenca() {
 
   useEffect(() => {
     axios
-      .get<Convidado[]>("http://160.238.36.99:5000/convidados")
+      .get<Convidado[]>("https://160.238.36.99:5001/convidados")
       .then((resposta) => {
         setConvidados(resposta.data);
       })
@@ -66,7 +66,7 @@ export default function Presenca() {
 
       axios
         .put(
-          `http://160.238.36.99:5000/convidados/${convidadoIdSelecionado}`,
+          `https://160.238.36.99:5001/convidados/${convidadoIdSelecionado}`,
           updatedConvidado
         )
         .then((response) => {

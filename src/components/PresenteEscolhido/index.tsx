@@ -80,7 +80,7 @@ export default function PresenteEscolhido(props: Props) {
   const enviarDados = async (dados: FormData) => {
     try {
       const response = await axios.post(
-        "http://160.238.36.99:5000/escolhidos",
+        "https://160.238.36.99:5001/escolhidos",
         dados
       );
       console.log(response.data);
@@ -105,7 +105,7 @@ export default function PresenteEscolhido(props: Props) {
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
       const response = await axios.put(
-        `http://160.238.36.99:5000/listadepresentes/${id}`,
+        `https://160.238.36.99:5001/listadepresentes/${id}`,
         dados
       );
       console.log(response.data);
