@@ -30,7 +30,7 @@ export default function DeletePresente(props: Props) {
   const deletarDados = async (id: number) => {
     try {
       const response = await axios.delete(
-        `https://160.238.36.99:5001/listadepresentes/${id}`
+        `https://cvtrsy.online/listadepresentes/${id}`
       );
       console.log(response.data);
       Swal({

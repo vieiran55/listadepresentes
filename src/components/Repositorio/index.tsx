@@ -12,7 +12,7 @@ export default function Repositorio({repositorio, setRepositorio}: Props){
   
   useEffect(() => {
     axios
-      .get("https://160.238.36.99:5001/listadepresentes")
+      .get("https://cvtrsy.online/listadepresentes")
       .then((resposta) => {
         setRepositorio(resposta.data);
         console.log(repositorio);

@@ -80,7 +80,7 @@ export default function PresenteEscolhido(props: Props) {
   const enviarDados = async (dados: FormData) => {
     try {
       const response = await axios.post(
-        "https://160.238.36.99:5001/escolhidos",
+        "https://cvtrsy.online/escolhidos",
         dados
       );
       console.log(response.data);
@@ -105,7 +105,7 @@ export default function PresenteEscolhido(props: Props) {
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
       const response = await axios.put(
-        `https://160.238.36.99:5001/listadepresentes/${id}`,
+        `https://cvtrsy.online/listadepresentes/${id}`,
         dados
       );
       console.log(response.data);
