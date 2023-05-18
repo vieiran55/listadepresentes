@@ -36,7 +36,7 @@ export default function DeletePresenca(props: Props) {
   const deletarDados = async (id: number) => {
     try {
       const response = await axios.delete(
-        `http://172.20.100.249:5000/convidados/${id}`
+        `http://160.238.36.99:5000/convidados/${id}`
       );
       console.log(response.data);
       Swal({

@@ -35,18 +35,21 @@ export default function AtualizaPresente(props: Props) {
     photo,
     status,
     id,
-    price
+    price,
   } = props;
 
   const [tituloAtt, setTituloAtt] = useState(title);
   const [linkAtt, setLinkAtt] = useState(link);
   const [statusAtt, setStatusAtt] = useState(status);
   const [precoAtt, setPrecoAtt] = useState<number>(price);
-  const [fotoAtt, setFotoAtt] = useState("");
+  const [fotoAtt, setFotoAtt] = useState(photo);
 
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
-      const response = await axios.put(`http://172.20.100.249:5000/listadepresentes/${id}`, dados);
+      const response = await axios.put(
+        `http://160.238.36.99:5000/listadepresentes/${id}`,
+        dados
+      );
       console.log(response.data);
       verificarSucesso();
       setTimeout(refresh, 2000);
@@ -94,20 +97,21 @@ export default function AtualizaPresente(props: Props) {
 
   const handlePrecoChange = (event: ChangeEvent<HTMLInputElement>) => {
     const valor = event.target.value;
-    if (valor.match(/\.00$/)) { // verifica se o valor termina com .00
+    if (valor.match(/\.00$/)) {
+      // verifica se o valor termina com .00
       const numero = parseFloat(valor.replace(/\.00$/, ".01")); // altera para .01
       setPrecoAtt(numero);
-    }else{
-      const numero = parseFloat(valor.replace(/[^\d.,]/g, "").replace(",", "."));
+    } else {
+      const numero = parseFloat(
+        valor.replace(/[^\d.,]/g, "").replace(",", ".")
+      );
       setPrecoAtt(numero);
     }
   };
 
-
   const handleFotoChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFotoAtt(event.target.value);
   };
-
 
   return (
     <div
@@ -121,9 +125,7 @@ export default function AtualizaPresente(props: Props) {
           className={estilos.formularioClose}
           onClick={() => setShowFormAtualiza(false)}
         />
-        <h1 className={estilos.formularioTitulo}>
-          ATUALIZAR PRESENTES
-        </h1>
+        <h1 className={estilos.formularioTitulo}>ATUALIZAR PRESENTES</h1>
         <label className={estilos.formularioTitulos}>
           Título:
           <input
@@ -173,11 +175,12 @@ export default function AtualizaPresente(props: Props) {
           Foto:
           <input
             className={estilos.formularioInputs}
-            type="file"
             value={fotoAtt}
+            type="text"
             onChange={handleFotoChange}
           />
         </label>
+
         <Button variant="contained" type="submit">
           Atualizar Presente
         </Button>

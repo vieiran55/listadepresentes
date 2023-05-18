@@ -47,7 +47,7 @@ export default function GerenciarLista(props: Props) {
 
   useEffect(() => {
     axios
-      .get<IOpcoes[]>("http://172.20.100.249:5000/listadepresentes")
+      .get<IOpcoes[]>("http://160.238.36.99:5000/listadepresentes")
       .then((resposta) => {
         setListaPresentes(resposta.data);
         console.log(listaPresentes);

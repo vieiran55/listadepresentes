@@ -21,7 +21,7 @@ export default function GerenciarPresentesRecebidos() {
 
   useEffect(() => {
     axios
-      .get<IEscolhidos[]>("http://172.20.100.249:5000/escolhidos")
+      .get<IEscolhidos[]>("http://160.238.36.99:5000/escolhidos")
       .then((resposta) => {
         setEscolhidos(resposta.data);
       })
