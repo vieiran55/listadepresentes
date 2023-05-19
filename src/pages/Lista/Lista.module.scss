@@ -61,26 +61,20 @@
 }
 
 .botoes__tipo__up {
-  @apply animate-bounce flex flex-col items-center;
+  @apply animate-bounce flex flex-col items-center bg-azulMarinho border-metallicSeaweed h-16 w-44 justify-center;
   color: #c5dfff;
   text-align: center;
   margin: 1em;
   margin-bottom: 0;
-  background-color: #fc7071;
-  width: 50%;
-  height: 50px;
-  border: 4px solid #fc7071;
+  border: 4px solid;
   border-radius: 1000px;
   &:hover {
-    background-color: #fc7071;
+    @apply bg-metallicSeaweed;
   }
   &:active {
     background-color: #fc7071;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-  }
-  @media screen and (min-width: $tablet) {
-    width: 20%;
   }
 }
 
