@@ -8,9 +8,9 @@
 
 .titulo {
   font-family: "Michroma", sans-serif;
-  @apply text-center font-bold text-2xl text-azulMarinho p-4;
+  @apply text-center font-bold text-xl text-azulMarinho p-4;
   @media screen and (min-width: $tablet) {
-  @apply text-4xl;
+  @apply text-2xl;
   }
 }
 
@@ -19,5 +19,8 @@
 }
 
 .conteiner{
-  @apply flex flex-col border-2 rounded-md p-4 bg-white;
+  @apply flex flex-col w-[330px] border-2 rounded-md p-4 bg-white;
+  @media screen and (min-width: $tablet) {
+    @apply flex w-[440px] flex-col;
+  }
 }

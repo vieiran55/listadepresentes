@@ -15,13 +15,14 @@ import {
 } from "@mui/material";
 import { GoVerified } from "react-icons/go";
 import { IEscolhidos } from "../../interfaces/IEscolhidos";
+import { server } from "../../config/server";
 
 export default function GerenciarPresentesRecebidos() {
   const [escolhidos, setEscolhidos] = useState<IEscolhidos[]>([]);
 
   useEffect(() => {
     axios
-      .get<IEscolhidos[]>("https://cvtrsy.online/escolhidos")
+      .get<IEscolhidos[]>(`${server}/escolhidos`)
       .then((resposta) => {
         setEscolhidos(resposta.data);
       })

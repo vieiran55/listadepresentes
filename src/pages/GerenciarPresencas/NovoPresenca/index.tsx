@@ -6,6 +6,7 @@ import axios from "axios";
 import Swal from "sweetalert";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Input from "@mui/joy/Input";
+import { server } from "../../../config/server";
 
 export interface Opcoes {
   nome: string;
@@ -25,7 +26,7 @@ export default function NovoPresenca(props: Props) {
   const enviarDados = async (dados: Opcoes) => {
     try {
       const response = await axios.post(
-        "https://cvtrsy.online/convidados",
+        `${server}/convidados`,
         dados
       );
       console.log(response.data);

@@ -43,6 +43,8 @@ export default function Presenca() {
   const [campoVazio, setCampoVazio] = useState(true);
   const isNaoSelecionado = qtdPessoasAdicionais === 0;
   const isConfirmado = convidadoSelecionado?.confirmado || false;
+  const [nomePessoaSelecionado, setNomePessoaSelecionado] =
+    useState<string>("");
 
   useEffect(() => {
     axios
@@ -104,12 +106,13 @@ export default function Presenca() {
     if (selectedGuest) {
       setConvidadoIdSelecionado(selectedGuest._id);
       setMostrarOpcoes(true);
+      setNomePessoaSelecionado(selectedGuest.pessoas[0]);
     } else {
       setConvidadoIdSelecionado("");
       setMostrarOpcoes(false);
+      setNomePessoaSelecionado("");
     }
   };
-
   const handleChangeNome = (index: number, value: string) => {
     const nomesAtualizados = [...nomesPessoasAdicionais];
     nomesAtualizados[index] = value;
@@ -136,7 +139,7 @@ export default function Presenca() {
   };
 
   return (
-    <div className={estilos.formulario}>
+    <form onSubmit={handleConfirmation} className={estilos.formulario}>
       <h1 className={estilos.formulario__titulo}>Lista de Convidados</h1>
       <FormControl sx={{ width: "300px", margin: "10px" }}>
         <InputLabel id="demo-simple-select-autowidth-label">
@@ -159,18 +162,22 @@ export default function Presenca() {
       </FormControl>
       {mostrarOpcoes && convidadoSelecionado && !isConfirmado && (
         <div className={estilos.formulario__opcoes}>
+          <h2 className={estilos.formulario__textos}>
+            Olá {nomePessoaSelecionado}, precisamos saber quantas pessoas de sua
+            familia irão com você ao evento.
+          </h2>
           <TextField
             id="outlined-select-currency"
             select
-            label="Alguém mais vai com você?"
+            label="Além de você, quantas pessoas irão?"
             sx={{ width: "300px", margin: "10px" }}
             value={qtdPessoasAdicionais}
             onChange={handleChangeQtdPessoasAdicionais}
           >
-            <MenuItem value={0}>Não</MenuItem>
-            <MenuItem value={2}>Sim, 1 pessoa</MenuItem>
-            <MenuItem value={3}>Sim, 2 pessoas</MenuItem>
-            <MenuItem value={4}>Sim, 3 pessoas</MenuItem>
+            <MenuItem value={0}>Apenas Eu</MenuItem>
+            <MenuItem value={2}>1 pessoa</MenuItem>
+            <MenuItem value={3}>2 pessoas</MenuItem>
+            <MenuItem value={4}>3 pessoas</MenuItem>
           </TextField>
           {qtdPessoasAdicionais > 0 && (
             <div className={estilos.formulario__opcoes}>
@@ -191,15 +198,16 @@ export default function Presenca() {
                     handleChangeNome(index, event.target.value)
                   }
                   sx={{ width: "300px", margin: "10px" }}
+                  required
                 />
               ))}
             </div>
           )}
 
           <Button
+            type="submit"
             variant="contained"
             sx={{ margin: "10px" }}
-            onClick={handleConfirmation}
             disabled={campoVazio && !isNaoSelecionado}
           >
             Confirmar Presença
@@ -219,6 +227,6 @@ export default function Presenca() {
           </Button>
         </div>
       )}
-    </div>
+    </form>
   );
 }

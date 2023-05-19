@@ -4,6 +4,7 @@ import classNames from "classnames";
 import axios from "axios";
 import Swal from "sweetalert";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { server } from "../../../config/server";
 
 export interface Opcoes {
   nome: string;
@@ -36,7 +37,7 @@ export default function DeletePresenca(props: Props) {
   const deletarDados = async (id: number) => {
     try {
       const response = await axios.delete(
-        `https://cvtrsy.online/convidados/${id}`
+        `${server}/convidados/${id}`
       );
       console.log(response.data);
       Swal({

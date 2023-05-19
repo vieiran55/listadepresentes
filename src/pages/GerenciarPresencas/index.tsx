@@ -20,6 +20,7 @@ import DeletePresenca from "./DeletePresenca";
 import AtualizaPresenca from "./AtualizaPresenca";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { server } from "../../config/server";
 
 export default function GerecniarPresencas() {
   const [convidados, setConvidados] = useState<IPresencas[]>([]);
@@ -36,7 +37,7 @@ export default function GerecniarPresencas() {
 
   useEffect(() => {
     axios
-      .get<IPresencas[]>("https://cvtrsy.online/convidados")
+      .get<IPresencas[]>(`${server}/convidados`)
       .then((resposta) => {
         setConvidados(resposta.data);
       })

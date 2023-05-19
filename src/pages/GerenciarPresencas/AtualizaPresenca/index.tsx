@@ -6,6 +6,7 @@ import Swal from "sweetalert";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Input from "@mui/joy/Input";
 import { ChangeEvent, useState } from "react";
+import { server } from "../../../config/server";
 
 export interface Opcoes {
   nome: string;
@@ -43,7 +44,7 @@ export default function AtualizaPresenca(props: Props) {
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
       const response = await axios.put(
-        `https://cvtrsy.online/convidados/${id}`,
+        `${server}/convidados/${id}`,
         dados
       );
       console.log(response.data);

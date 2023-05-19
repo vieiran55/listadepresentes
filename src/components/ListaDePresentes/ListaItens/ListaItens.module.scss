@@ -73,13 +73,13 @@
     @apply text-xl text-ateneoBlue font-bold text-red-600;
   }
   &__confirmar {
-    @apply my-1 w-10/12 inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out;
+    @apply mt-2 w-10/12 inline-block px-6 py-2.5;
   }
   &__acoes {
     @apply flex flex-row mt-2 w-10/12;
     &__link {
       text-transform: uppercase;
-      padding: 0.5em 2em;
+      padding: 0.0em 2em;
       border: transparent;
       box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
       color: white;

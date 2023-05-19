@@ -7,14 +7,18 @@
 }
 
 .formulario{
+  font-family: "Michroma", sans-serif;
  @apply flex flex-col h-[100vh] items-center border-2 w-full;
  &__titulo {
-   font-family: "Michroma", sans-serif;
    @apply text-center font-bold text-2xl text-azulMarinho mt-8 p-4;
    @media screen and (min-width: $tablet) {
    @apply text-4xl;
    }
+
  }
+ &__textos{
+  @apply text-base m-5 w-[75%] text-center;
+}
  &__opcoes{
   @apply flex flex-col items-center;
  }

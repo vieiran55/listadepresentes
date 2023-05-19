@@ -109,6 +109,7 @@ export default function ListaItens(props: Props) {
     setNomePresenteEscolhido(title);
     setIdPresenteEscolhido(_id);
     setShowPresenteEscolhido(true);
+    topo();
   };
 
   useEffect(() => {
@@ -116,6 +117,13 @@ export default function ListaItens(props: Props) {
       setIsShown(true);
     }
   }, []);
+
+  const topo = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className={classCorpo}>
@@ -155,6 +163,7 @@ export default function ListaItens(props: Props) {
               variant="contained"
               onClick={handClick}
               className={classCorpoItemAcoesConfirmar}
+              sx={{marginTop: "10px"}}
             >
               Vou dar esse presente
             </Button>

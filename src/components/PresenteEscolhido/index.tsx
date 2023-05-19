@@ -11,6 +11,7 @@ import { useState } from "react";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
 import Swal from "sweetalert";
+import { server } from "../../config/server";
 
 interface FormData {
   nome: string;
@@ -53,6 +54,7 @@ export default function PresenteEscolhido(props: Props) {
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
   const [presente, setPresente] = useState("");
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -65,6 +67,13 @@ export default function PresenteEscolhido(props: Props) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // console.log("Valores capturados:", titulo, link, status, preco, foto);
     event.preventDefault();
+
+    // Verifica se algum campo está vazio
+    // Verifica se algum campo está vazio
+    if (nome.trim() === "" || telefone.trim() === "" || email.trim() === "") {
+      setFormSubmitted(true);
+      return;
+    }
     enviarDados({
       nome: nome,
       telefone: parseFloat(telefone),
@@ -72,22 +81,19 @@ export default function PresenteEscolhido(props: Props) {
       presente: nomePresenteEscolhido,
     });
     // código para enviar dados para o servidor
-    atualizarDados(idPresenteEscolhido,{
-      status: "indisponivel"
+    atualizarDados(idPresenteEscolhido, {
+      status: "indisponivel",
     });
   };
 
   const enviarDados = async (dados: FormData) => {
     try {
-      const response = await axios.post(
-        "https://cvtrsy.online/escolhidos",
-        dados
-      );
+      const response = await axios.post(`${server}/escolhidos`, dados);
       console.log(response.data);
       Swal({
         icon: "success",
         title: "Sucesso!",
-        text: "Seu cadastro foi realizado com sucesso!",
+        text: "Presente reservado com sucesso!",
       });
       setTimeout(refresh, 4000);
       // verificarSucesso();
@@ -97,7 +103,6 @@ export default function PresenteEscolhido(props: Props) {
     }
   };
 
-  
   const refresh = () => {
     window.location.reload();
   };
@@ -105,7 +110,7 @@ export default function PresenteEscolhido(props: Props) {
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
       const response = await axios.put(
-        `https://cvtrsy.online/listadepresentes/${id}`,
+        `${server}/listadepresentes/${id}`,
         dados
       );
       console.log(response.data);
@@ -122,12 +127,16 @@ export default function PresenteEscolhido(props: Props) {
             className={estilos.close}
             onClick={() => setShowPresenteEscolhido(false)}
           />
-          <h1 className={estilos.titulo}>INSIRA SEUS DADOS </h1>
+          <h1 className={estilos.titulo}>
+            INSIRA SEUS DADOS PARA CONFIRMAR A ESCOLHA DO PRESENTE
+          </h1>
           <TextField
             label="Digite seu Nome"
             value={nome}
             onChange={(event) => setNome(event.target.value)}
             fullWidth
+            error={formSubmitted && nome.trim() === ""}
+            helperText={formSubmitted && nome.trim() === "" ? "Digite seu nome" : ""}
             margin="normal"
           />
           <TextField
@@ -135,6 +144,8 @@ export default function PresenteEscolhido(props: Props) {
             value={telefone}
             onChange={(event) => setTelefone(event.target.value)}
             fullWidth
+            error={formSubmitted && telefone.trim() === ""}
+            helperText={formSubmitted && telefone.trim() === "" ? "Digite seu telefone" : ""}
             margin="normal"
           />
           <TextField
@@ -143,6 +154,8 @@ export default function PresenteEscolhido(props: Props) {
             onChange={(event) => setEmail(event.target.value)}
             fullWidth
             type="email"
+            error={formSubmitted && email.trim() === ""}
+            helperText={formSubmitted && email.trim() === "" ? "Digite seu email" : ""}
             margin="normal"
           />
           <TextField

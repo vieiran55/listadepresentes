@@ -17,6 +17,7 @@ import axios from "axios";
 import NovoPresente from "./NovoPresente";
 import DeletePresente from "./DeletePresente";
 import AtualizaPresente from "./AtualizaPresente";
+import { server } from "../../config/server";
 
 interface Props {
   repositorio: IOpcoes[];
@@ -47,7 +48,7 @@ export default function GerenciarLista(props: Props) {
 
   useEffect(() => {
     axios
-      .get<IOpcoes[]>("https://cvtrsy.online/listadepresentes")
+      .get<IOpcoes[]>(`${server}/listadepresentes`)
       .then((resposta) => {
         setListaPresentes(resposta.data);
         console.log(listaPresentes);
