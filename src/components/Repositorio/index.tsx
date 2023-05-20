@@ -12,7 +12,7 @@ interface Props {
 export default function Repositorio({ repositorio, setRepositorio }: Props) {
   useEffect(() => {
     axios
-      .get(`${server}/listadepresentes`)
+      .get("https://cvtrsy.online/listadepresentes")
       .then((resposta) => {
         setRepositorio(resposta.data);
         console.log(repositorio);
