@@ -88,7 +88,7 @@ export default function PresenteEscolhido(props: Props) {
 
   const enviarDados = async (dados: FormData) => {
     try {
-      const response = await axios.post(`${server}/escolhidos`, dados);
+      const response = await axios.post("https://cvtrsy.online/escolhidos", dados);
       console.log(response.data);
       Swal({
         icon: "success",
@@ -110,7 +110,7 @@ export default function PresenteEscolhido(props: Props) {
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
       const response = await axios.put(
-        `${server}/listadepresentes/${id}`,
+        `https://cvtrsy.online/listadepresentes/${id}`,
         dados
       );
       console.log(response.data);
