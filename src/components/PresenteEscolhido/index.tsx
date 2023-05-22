@@ -10,8 +10,8 @@ import estilos from "./PresenteEscolhido.module.scss";
 import { useState } from "react";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
-import Swal from "sweetalert";
-import { server } from "../../config/server";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   nome: string;
@@ -90,17 +90,22 @@ export default function PresenteEscolhido(props: Props) {
     try {
       const response = await axios.post("https://cvtrsy.online/escolhidos", dados);
       console.log(response.data);
-      Swal({
-        icon: "success",
-        title: "Sucesso!",
-        text: "Presente reservado com sucesso!",
-      });
-      setTimeout(refresh, 4000);
-      // verificarSucesso();
+      verificarSucesso();
       // setTimeout(refresh, 2000);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const navigate = useNavigate();
+  const verificarSucesso = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Sucesso!",
+      text: "Presente reservado com sucesso!",
+    }).then(() => {
+      navigate("/");
+    });
   };
 
   const refresh = () => {
