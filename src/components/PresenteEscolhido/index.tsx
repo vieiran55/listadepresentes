@@ -12,6 +12,7 @@ import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
 import Swal from "sweetalert";
 import { server } from "../../config/server";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   nome: string;
@@ -95,13 +96,24 @@ export default function PresenteEscolhido(props: Props) {
         title: "Sucesso!",
         text: "Presente reservado com sucesso!",
       });
-      setTimeout(refresh, 4000);
-      // verificarSucesso();
-      // setTimeout(refresh, 2000);
+      verificarSucesso();
     } catch (error) {
       console.error(error);
     }
   };
+
+  const navigate = useNavigate();
+
+  const verificarSucesso = () => {
+    Swal({
+      icon: "success",
+      title: "Sucesso!",
+      text: "Presente reservado com sucesso!",
+    }).then(() => {
+      navigate("/");
+    });
+  };
+
 
   const refresh = () => {
     window.location.reload();

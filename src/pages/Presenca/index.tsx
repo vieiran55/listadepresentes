@@ -57,7 +57,8 @@ export default function Presenca() {
       });
   }, []);
 
-  const handleConfirmation = () => {
+  const handleConfirmation = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (convidadoIdSelecionado && convidadoSelecionado) {
       const updatedConvidado = {
         nome: convidadoSelecionado.nome,
@@ -73,7 +74,6 @@ export default function Presenca() {
         )
         .then((response) => {
           verificarSucesso();
-          setTimeout(refresh, 4000);
           console.log("Presença confirmada:", response.data);
         })
         .catch((error) => {
@@ -83,15 +83,13 @@ export default function Presenca() {
   };
 
   const navigate = useNavigate();
-
-  const refresh = () => {
-    navigate("/");
-  };
   const verificarSucesso = () => {
     Swal({
       icon: "success",
       title: "Sucesso!",
       text: "Sua presença foi confirmada com sucesso!",
+    }).then(() => {
+      navigate("/");
     });
   };
 

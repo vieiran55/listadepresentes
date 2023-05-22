@@ -100,3 +100,23 @@
     }
   }
 }
+
+
+@media (prefers-color-scheme: dark) {
+  .corpo__disponivel {
+    @include card(rgb(2,0,36), rgba(9,9,121,1));
+    box-shadow: none;
+  }
+
+  .corpo__indisponivel {
+    box-shadow: none;
+  }
+  .corpo__disponivel::after {
+    background: rgb(2,0,36);
+    background: linear-gradient(167deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 11%, rgba(0,212,255,1) 77%);
+  }
+
+  .corpo__indisponivel span::before {
+    box-shadow: none;
+  }
+}
