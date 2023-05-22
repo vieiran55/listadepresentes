@@ -25,17 +25,17 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .formulario {
-    @apply bg-black;
-  }
-  .titulo {
-    @apply text-white;
-  }
-  .close {
-    @apply fill-red-600;
-  }
-  .conteiner {
-    @apply bg-gray-900 text-white;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   .formulario {
+//     @apply bg-black;
+//   }
+//   .titulo {
+//     @apply text-white;
+//   }
+//   .close {
+//     @apply fill-red-600;
+//   }
+//   .conteiner {
+//     @apply bg-gray-900 text-white;
+//   }
+// }

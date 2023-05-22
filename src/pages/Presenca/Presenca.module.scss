@@ -28,20 +28,20 @@
 }
 
 /* Estilos para o modo escuro */
-@media (prefers-color-scheme: dark) {
-  .conteiner {
-    @apply bg-black;
-  }
-  .formulario__titulo {
-    @apply text-white;
-  }
-  .formulario__textos {
-    @apply text-white;
-  }
-  .formulario__opcoes {
-    @apply bg-gray-900;
-  }
-  .presenca {
-    @apply text-white;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   .conteiner {
+//     @apply bg-black;
+//   }
+//   .formulario__titulo {
+//     @apply text-white;
+//   }
+//   .formulario__textos {
+//     @apply text-white;
+//   }
+//   .formulario__opcoes {
+//     @apply bg-gray-900;
+//   }
+//   .presenca {
+//     @apply text-white;
+//   }
+// }
