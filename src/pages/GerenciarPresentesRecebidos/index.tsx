@@ -22,7 +22,7 @@ export default function GerenciarPresentesRecebidos() {
 
   useEffect(() => {
     axios
-      .get<IEscolhidos[]>(`${server}/escolhidos`)
+      .get<IEscolhidos[]>("https://cvtrsy.online/escolhidos")
       .then((resposta) => {
         setEscolhidos(resposta.data);
       })

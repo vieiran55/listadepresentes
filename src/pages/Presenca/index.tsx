@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { Select } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert";
+import Swal from "sweetalert2";
 
 interface FormValues {
   nome: string;
@@ -34,7 +34,7 @@ export default function Presenca() {
   const [convidadoSelecionado, setConvidadoSelecionado] =
     useState<Convidado | null>(null);
   const [mostrarOpcoes, setMostrarOpcoes] = useState(false);
-  const [qtdPessoasAdicionais, setQtdPessoasAdicionais] = useState(0);
+  const [qtdPessoasAdicionais, setQtdPessoasAdicionais] = useState<number>(0);
   const [nomesPessoasAdicionais, setNomesPessoasAdicionais] = useState<
     string[]
   >([]);
@@ -83,8 +83,13 @@ export default function Presenca() {
   };
 
   const navigate = useNavigate();
+
+  const refresh = () => {
+    navigate("/");
+  };
+
   const verificarSucesso = () => {
-    Swal({
+    Swal.fire({
       icon: "success",
       title: "Sucesso!",
       text: "Sua presença foi confirmada com sucesso!",
@@ -122,7 +127,7 @@ export default function Presenca() {
   };
 
   const handleChangeQtdPessoasAdicionais = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: SelectChangeEvent<number>
   ) => {
     const selectedValue = Number(event.target.value);
     setQtdPessoasAdicionais(selectedValue);
@@ -164,19 +169,24 @@ export default function Presenca() {
             Olá {nomePessoaSelecionado}, precisamos saber quantas pessoas de sua
             familia irão com você ao evento.
           </h2>
-          <TextField
-            id="outlined-select-currency"
-            select
-            label="Além de você, quantas pessoas irão?"
-            sx={{ width: "300px", margin: "10px" }}
-            value={qtdPessoasAdicionais}
-            onChange={handleChangeQtdPessoasAdicionais}
-          >
-            <MenuItem value={0}>Apenas Eu</MenuItem>
-            <MenuItem value={2}>1 pessoa</MenuItem>
-            <MenuItem value={3}>2 pessoas</MenuItem>
-            <MenuItem value={4}>3 pessoas</MenuItem>
-          </TextField>
+          <FormControl sx={{ width: "300px", margin: "10px" }}>
+            <InputLabel id="outlined-select-currency">
+            Além de você, quantas pessoas irão?
+            </InputLabel>
+            <Select
+              id="outlined-select-currency"
+              labelId="outlined-select-currency"
+              label="Além de você, quantas pessoas irão?"
+              sx={{ width: "300px", margin: "10px" }}
+              value={qtdPessoasAdicionais}
+              onChange={handleChangeQtdPessoasAdicionais}
+            >
+              <MenuItem value={0}>Apenas Eu</MenuItem>
+              <MenuItem value={2}>1 pessoa</MenuItem>
+              <MenuItem value={3}>2 pessoas</MenuItem>
+              <MenuItem value={4}>3 pessoas</MenuItem>
+            </Select>
+          </FormControl>
           {qtdPessoasAdicionais > 0 && (
             <div className={estilos.formulario__opcoes}>
               <TextField

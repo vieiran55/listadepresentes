@@ -26,7 +26,7 @@ export default function NovoPresenca(props: Props) {
   const enviarDados = async (dados: Opcoes) => {
     try {
       const response = await axios.post(
-        `${server}/convidados`,
+        "https://cvtrsy.online/convidados",
         dados
       );
       console.log(response.data);

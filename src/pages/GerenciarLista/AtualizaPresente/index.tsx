@@ -48,7 +48,7 @@ export default function AtualizaPresente(props: Props) {
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
       const response = await axios.put(
-        `${server}/listadepresentes/${id}`,
+        `https://cvtrsy.online/listadepresentes/${id}`,
         dados
       );
       console.log(response.data);

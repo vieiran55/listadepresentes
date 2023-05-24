@@ -10,8 +10,7 @@ import estilos from "./PresenteEscolhido.module.scss";
 import { useState } from "react";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
-import Swal from "sweetalert";
-import { server } from "../../config/server";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 interface FormData {
@@ -89,23 +88,18 @@ export default function PresenteEscolhido(props: Props) {
 
   const enviarDados = async (dados: FormData) => {
     try {
-      const response = await axios.post(`${server}/escolhidos`, dados);
+      const response = await axios.post("https://cvtrsy.online/escolhidos", dados);
       console.log(response.data);
-      Swal({
-        icon: "success",
-        title: "Sucesso!",
-        text: "Presente reservado com sucesso!",
-      });
       verificarSucesso();
+      // setTimeout(refresh, 2000);
     } catch (error) {
       console.error(error);
     }
   };
 
   const navigate = useNavigate();
-
   const verificarSucesso = () => {
-    Swal({
+    Swal.fire({
       icon: "success",
       title: "Sucesso!",
       text: "Presente reservado com sucesso!",
@@ -114,7 +108,6 @@ export default function PresenteEscolhido(props: Props) {
     });
   };
 
-
   const refresh = () => {
     window.location.reload();
   };
@@ -122,7 +115,7 @@ export default function PresenteEscolhido(props: Props) {
   const atualizarDados = async (id: number, dados: Opcoes) => {
     try {
       const response = await axios.put(
-        `${server}/listadepresentes/${id}`,
+        `https://cvtrsy.online/listadepresentes/${id}`,
         dados
       );
       console.log(response.data);
