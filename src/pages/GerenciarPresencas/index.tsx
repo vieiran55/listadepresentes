@@ -33,8 +33,6 @@ export default function GerecniarPresencas() {
   const [confirmadoFormPres, setConfirmadoFormPres] = useState(false);
   const [idFormPres, setIdFormPres] = useState(0);
 
-
-
   useEffect(() => {
     axios
       .get<IPresencas[]>("https://cvtrsy.online/convidados")
@@ -53,13 +51,19 @@ export default function GerecniarPresencas() {
     return texto;
   }
 
-  const somaQtd = convidados.reduce((acumulador, objeto) => acumulador + objeto.qtd, 0);
+  const somaQtd = convidados.reduce(
+    (acumulador, objeto) => acumulador + objeto.qtd,
+    0
+  );
 
   return (
     <>
       <div className={estilos.conteiner}>
         {showFormPres && (
-          <NovoPresenca showFormPres={showFormPres} setShowFormPres={setShowFormPres} />
+          <NovoPresenca
+            showFormPres={showFormPres}
+            setShowFormPres={setShowFormPres}
+          />
         )}
         {showFormPresDelete && (
           <DeletePresenca
@@ -85,7 +89,9 @@ export default function GerecniarPresencas() {
         )}
         <h1 className={estilos.titulo}>LISTA DE CONVIDADOS</h1>
         <div className={estilos.botaoAdicionar}>
-          <Button variant="contained" onClick={() => setShowFormPres(true)}>Adicionar Convidado</Button>
+          <Button variant="contained" onClick={() => setShowFormPres(true)}>
+            Adicionar Convidado
+          </Button>
           <h2>Quantidade Total: {somaQtd}</h2>
         </div>
         <TableContainer style={{ width: "100%", border: "1px solid #ddd" }}>
@@ -116,69 +122,101 @@ export default function GerecniarPresencas() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {convidados.map((item, index) => (
-                <TableRow
-                  key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>{item._id} </TableCell>
-                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>
-                    {limitarTexto(item.nome, 50)}{" "}
-                  </TableCell>
-                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>{item.qtd}</TableCell>
-                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>
-                    {item.pessoas.map((item, index) => (
-                      <ol key={index}>
-                        <li>-{item}</li>
-                      </ol>
-                    ))}
-                  </TableCell>
-                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>
-                    {" "}
-                    {item.confirmado && (
-                      <GoVerified className={estilos.confirmado} />
-                    )}
-                  </TableCell>
-                  <TableCell padding="none" sx={{ width: 200, whiteSpace: "normal" }}>
-                    {" "}
-                    <Stack spacing={1} sx={{ width: 1, py: 1 }}>
-                      <div className={estilos.botoesLista}>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          startIcon={<EditIcon />}
-                          onClick={() => {
-                            setShowFormPresAtualiza(true);
-                            setNomeFormPres(item.nome);
-                            setQtdFormPres(item.qtd);
-                            setPessoasFormPres(item.pessoas);
-                            setConfirmadoFormPres(item.confirmado);
-                            setIdFormPres(item._id);
-                          }}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          size="small"
-                          startIcon={<DeleteIcon />}
-                          // onClick={() => deletarDados(item._id)}
-                          onClick={() => {
-                            setShowFormPresDelete(true);
-                            setNomeFormPres(item.nome);
-                            setQtdFormPres(item.qtd);
-                            setPessoasFormPres(item.pessoas);
-                            setConfirmadoFormPres(item.confirmado);
-                            setIdFormPres(item._id);
-                          }}
-                        >
-                          Delete
-                        </Button>
-                      </div>
-                    </Stack>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {convidados
+                .sort((a, b) => {
+                  if (a.confirmado && !b.confirmado) {
+                    return -1;
+                  } else if (!a.confirmado && b.confirmado) {
+                    return 1;
+                  } else {
+                    return 0;
+                  }
+                })
+                .map((item, index) => (
+                  <TableRow
+                    key={index}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell
+                      padding="none"
+                      sx={{ width: 200, whiteSpace: "normal" }}
+                    >
+                      {item._id}{" "}
+                    </TableCell>
+                    <TableCell
+                      padding="none"
+                      sx={{ width: 200, whiteSpace: "normal" }}
+                    >
+                      {limitarTexto(item.nome, 50)}{" "}
+                    </TableCell>
+                    <TableCell
+                      padding="none"
+                      sx={{ width: 200, whiteSpace: "normal" }}
+                    >
+                      {item.qtd}
+                    </TableCell>
+                    <TableCell
+                      padding="none"
+                      sx={{ width: 200, whiteSpace: "normal" }}
+                    >
+                      {item.pessoas.map((item, index) => (
+                        <ol key={index}>
+                          <li>-{item}</li>
+                        </ol>
+                      ))}
+                    </TableCell>
+                    <TableCell
+                      padding="none"
+                      sx={{ width: 200, whiteSpace: "normal" }}
+                    >
+                      {" "}
+                      {item.confirmado && (
+                        <GoVerified className={estilos.confirmado} />
+                      )}
+                    </TableCell>
+                    <TableCell
+                      padding="none"
+                      sx={{ width: 200, whiteSpace: "normal" }}
+                    >
+                      {" "}
+                      <Stack spacing={1} sx={{ width: 1, py: 1 }}>
+                        <div className={estilos.botoesLista}>
+                          <Button
+                            variant="outlined"
+                            size="small"
+                            startIcon={<EditIcon />}
+                            onClick={() => {
+                              setShowFormPresAtualiza(true);
+                              setNomeFormPres(item.nome);
+                              setQtdFormPres(item.qtd);
+                              setPessoasFormPres(item.pessoas);
+                              setConfirmadoFormPres(item.confirmado);
+                              setIdFormPres(item._id);
+                            }}
+                          >
+                            Edit
+                          </Button>
+                          <Button
+                            variant="outlined"
+                            size="small"
+                            startIcon={<DeleteIcon />}
+                            // onClick={() => deletarDados(item._id)}
+                            onClick={() => {
+                              setShowFormPresDelete(true);
+                              setNomeFormPres(item.nome);
+                              setQtdFormPres(item.qtd);
+                              setPessoasFormPres(item.pessoas);
+                              setConfirmadoFormPres(item.confirmado);
+                              setIdFormPres(item._id);
+                            }}
+                          >
+                            Delete
+                          </Button>
+                        </div>
+                      </Stack>
+                    </TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </TableContainer>

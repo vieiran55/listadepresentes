@@ -156,11 +156,23 @@ export default function Presenca() {
           onChange={handleNameSelect}
         >
           <MenuItem value="">Selecione...</MenuItem>
-          {convidados.map((convidado) => (
-            <MenuItem key={convidado._id} value={convidado.nome}>
-              {convidado.nome}
-            </MenuItem>
-          ))}
+          {convidados
+            .sort((a, b) => {
+              const aSobrenome = a.nome.includes(" ");
+              const bSobrenome = b.nome.includes(" ");
+              if (aSobrenome && !bSobrenome) {
+                return -1;
+              } else if (!aSobrenome && bSobrenome) {
+                return 1;
+              } else {
+                return a.nome.localeCompare(b.nome);
+              }
+            })
+            .map((convidado) => (
+              <MenuItem key={convidado._id} value={convidado.nome}>
+                {convidado.nome}
+              </MenuItem>
+            ))}
         </Select>
       </FormControl>
       {mostrarOpcoes && convidadoSelecionado && !isConfirmado && (
@@ -171,7 +183,7 @@ export default function Presenca() {
           </h2>
           <FormControl sx={{ width: "300px", margin: "10px" }}>
             <InputLabel id="outlined-select-currency">
-            Além de você, quantas pessoas irão?
+              Além de você, quantas pessoas irão?
             </InputLabel>
             <Select
               id="outlined-select-currency"

@@ -52,9 +52,9 @@ export default function ListaDePresentes(props: Props) {
     const regex = new RegExp(busca, "i");
     return regex.test(title);
   }
-  
+
   useEffect(() => {
-    const novaLista = repositorio.filter( (item) => testaBusca(item.title) );
+    const novaLista = repositorio.filter((item) => testaBusca(item.title));
     setLista(novaLista);
     if (novaLista.length > 0) {
       setShowLista(true);
@@ -65,7 +65,6 @@ export default function ListaDePresentes(props: Props) {
     }
   }, [busca, repositorio]);
 
-
   return (
     <div
       className={classNames({
@@ -74,24 +73,27 @@ export default function ListaDePresentes(props: Props) {
       })}
     >
       {showLista &&
-        lista.map((item) => (
-          <ListaItens
-            key={item._id}
-            {...item}
-            repositorio={[]}
-            open={open}
-            setOpen={setOpen}
-            gridCss={gridCss}
-            setGridCss={setGridCss}
-            listaCss={listaCss}
-            setListaCss={setListaCss}
-            nomePresenteEscolhido={nomePresenteEscolhido}
-            setNomePresenteEscolhido={setNomePresenteEscolhido}
-            showPresenteEscolhido={showPresenteEscolhido} setShowPresenteEscolhido={setShowPresenteEscolhido}
-            idPresenteEscolhido={idPresenteEscolhido}
-            setIdPresenteEscolhido={setIdPresenteEscolhido}
-          />
-        ))}
+        lista
+          .sort((a, b) => b.price - a.price)
+          .map((item) => (
+            <ListaItens
+              key={item._id}
+              {...item}
+              repositorio={[]}
+              open={open}
+              setOpen={setOpen}
+              gridCss={gridCss}
+              setGridCss={setGridCss}
+              listaCss={listaCss}
+              setListaCss={setListaCss}
+              nomePresenteEscolhido={nomePresenteEscolhido}
+              setNomePresenteEscolhido={setNomePresenteEscolhido}
+              showPresenteEscolhido={showPresenteEscolhido}
+              setShowPresenteEscolhido={setShowPresenteEscolhido}
+              idPresenteEscolhido={idPresenteEscolhido}
+              setIdPresenteEscolhido={setIdPresenteEscolhido}
+            />
+          ))}
       {showError && <div>Item não encontrado.</div>}
     </div>
   );

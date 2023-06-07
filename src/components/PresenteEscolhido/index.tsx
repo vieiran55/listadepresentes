@@ -105,6 +105,7 @@ export default function PresenteEscolhido(props: Props) {
       text: "Presente reservado com sucesso!",
     }).then(() => {
       navigate("/");
+      setShowPresenteEscolhido(false);
     });
   };
 
