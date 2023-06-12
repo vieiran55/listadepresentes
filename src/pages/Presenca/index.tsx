@@ -156,23 +156,37 @@ export default function Presenca() {
           onChange={handleNameSelect}
         >
           <MenuItem value="">Selecione...</MenuItem>
-          {convidados
-            .sort((a, b) => {
-              const aSobrenome = a.nome.includes(" ");
-              const bSobrenome = b.nome.includes(" ");
-              if (aSobrenome && !bSobrenome) {
-                return -1;
-              } else if (!aSobrenome && bSobrenome) {
-                return 1;
-              } else {
-                return a.nome.localeCompare(b.nome);
-              }
-            })
-            .map((convidado) => (
-              <MenuItem key={convidado._id} value={convidado.nome}>
-                {convidado.nome}
-              </MenuItem>
-            ))}
+
+          {
+            // Itera sobre a lista de convidados
+            convidados
+              // Ordena os convidados de acordo com a função de comparação
+              .sort((a, b) => {
+                // Verifica se o nome do convidado 'a' contém um sobrenome
+                const aSobrenome = a.nome.includes(" ");
+                // Verifica se o nome do convidado 'b' contém um sobrenome
+                const bSobrenome = b.nome.includes(" ");
+                // Verifica se o convidado 'a' tem sobrenome e o convidado 'b' não tem sobrenome
+                if (aSobrenome && !bSobrenome) {
+                  // Retorna um valor negativo para que o convidado 'a' seja classificado antes do convidado 'b'
+                  return -1;
+                  // Verifica se o convidado 'a' não tem sobrenome e o convidado 'b' tem sobrenome
+                } else if (!aSobrenome && bSobrenome) {
+                  // Retorna um valor positivo para que o convidado 'a' seja classificado depois do convidado 'b'
+                  return 1;
+                  // Caso contrário, ambos os convidados têm sobrenome ou não têm sobrenome
+                } else {
+                  // Compara os nomes dos convidados alfabeticamente usando a função localeCompare
+                  return a.nome.localeCompare(b.nome);
+                }
+              })
+              // Mapeia cada convidado para um MenuItem
+              .map((convidado) => (
+                <MenuItem key={convidado._id} value={convidado.nome}>
+                  {convidado.nome}
+                </MenuItem>
+              ))
+          }
         </Select>
       </FormControl>
       {mostrarOpcoes && convidadoSelecionado && !isConfirmado && (
@@ -237,7 +251,7 @@ export default function Presenca() {
 
       {isConfirmado && (
         <div className={estilos.presenca}>
-          <p>Você já confirmou sua presença!</p>
+          <p>Olá {nomePessoaSelecionado}, sua presença já está confirmada!</p>
           <Button
             variant="contained"
             sx={{ margin: "50px" }}
