@@ -27,6 +27,8 @@ interface Props {
   setShowPresenteEscolhido: React.Dispatch<React.SetStateAction<boolean>>;
   idPresenteEscolhido: number;
   setIdPresenteEscolhido: React.Dispatch<React.SetStateAction<number>>;
+  linkPresenteEscolhido: string;
+  setLinkPresenteEscolhido: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function ListaItens(props: Props) {
@@ -50,6 +52,8 @@ export default function ListaItens(props: Props) {
     setShowPresenteEscolhido,
     idPresenteEscolhido,
     setIdPresenteEscolhido,
+    linkPresenteEscolhido,
+    setLinkPresenteEscolhido
   } = props;
   const pix = "https://nubank.com.br/pagar/xw2h0/YToiVhZ4ZT";
   const [isShown, setIsShown] = useState(false);
@@ -106,6 +110,7 @@ export default function ListaItens(props: Props) {
   });
 
   const handClick = () => {
+    setLinkPresenteEscolhido(link);
     setNomePresenteEscolhido(title);
     setIdPresenteEscolhido(_id);
     setShowPresenteEscolhido(true);

@@ -11,7 +11,9 @@ import { useState } from "react";
 import axios from "axios";
 import { AiOutlineClose } from "react-icons/ai";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import classNames from "classnames";
+import logoCasal from "../../images/gabieantoniologo.png";
 
 interface FormData {
   nome: string;
@@ -27,6 +29,8 @@ export interface Opcoes {
 interface Props {
   nomePresenteEscolhido: string;
   setNomePresenteEscolhido: React.Dispatch<React.SetStateAction<string>>;
+  linkPresenteEscolhido: string;
+  setLinkPresenteEscolhido: React.Dispatch<React.SetStateAction<string>>;
   showPresenteEscolhido: boolean;
   setShowPresenteEscolhido: React.Dispatch<React.SetStateAction<boolean>>;
   idPresenteEscolhido: number;
@@ -41,6 +45,8 @@ export default function PresenteEscolhido(props: Props) {
     setShowPresenteEscolhido,
     idPresenteEscolhido,
     setIdPresenteEscolhido,
+    linkPresenteEscolhido,
+    setLinkPresenteEscolhido
   } = props;
 
   const [formData, setFormData] = useState<FormData>({
@@ -55,6 +61,8 @@ export default function PresenteEscolhido(props: Props) {
   const [email, setEmail] = useState("");
   const [presente, setPresente] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const pix = "https://nubank.com.br/pagar/xw2h0/YToiVhZ4ZT";
+  const wpp = "https://wa.me/5561999981928";
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -80,15 +88,113 @@ export default function PresenteEscolhido(props: Props) {
       email: email,
       presente: nomePresenteEscolhido,
     });
-    // código para enviar dados para o servidor
+    //código para enviar dados para o servidor
     atualizarDados(idPresenteEscolhido, {
       status: "indisponivel",
     });
+
+    const destinatario = email; // Substitua pelo endereço de email desejado
+    const casal = "vieira.n55@gmail.com";
+    const assunto = "CASAMENTO GABRIELA E ANTÔNIO - CONFIRMAÇÃO DE PRESENTE";
+    const corpo = `
+    Querido(a) ${nome},
+
+    Muito obrigado por escolher nos presentear! Você nos surpreendeu e fez nossos corações sorrirem. Você é demais!
+
+    Com carinho,
+    GABRIELA E ANTÔNIO
+
+    ------------------------------
+    
+    Dados do Cadastro:
+
+    - Nome: ${nome}
+    - Telefone: ${parseFloat(telefone)}
+    - E-mail: ${email}
+    - Presente: ${nomePresenteEscolhido}
+
+
+    Entre em contato com a gente: ${wpp}
+    Clique neste link para acessar os dados para Pix: ${pix}
+    Clique neste link para acessar o Presente: ${linkPresenteEscolhido}
+
+    ------------------------------
+
+  `;
+
+    const corpo2 = `
+  Presente Reservado
+  ------------------------------
+  
+  Dados do Cadastro:
+
+  - Nome: ${nome}
+  - Telefone: ${parseFloat(telefone)}
+  - E-mail: ${email}
+  - Presente: ${nomePresenteEscolhido}
+  ------------------------------
+
+`;
+
+    axios
+      .get("https://cvtrsy.online/enviar-email", {
+        params: {
+          destinatario: destinatario,
+          assunto: assunto,
+          corpo: corpo,
+        },
+      })
+      .then((response1) => {
+        console.log(response1.data);
+        // Lógica adicional após o envio do primeiro email com sucesso
+
+        return axios.get("https://cvtrsy.online/enviar-email", {
+          params: {
+            destinatario: casal,
+            assunto: assunto,
+            corpo: corpo2,
+          },
+        });
+      })
+      .then((response2) => {
+        console.log(response2.data);
+        // Lógica adicional após o envio do segundo email com sucesso
+      })
+      .catch((error) => {
+        console.error("Erro ao enviar o email:", error);
+        // Lógica de tratamento de erro
+      });
   };
+
+  // const enviarEmail = (dados: FormData) => {
+  //   const destinatario = email; // Substitua pelo endereço de email desejado
+  //   const assunto = "CONFIRMAÇÃO DE PRESENTE ESCOLHIDO";
+  //   const corpo = `Obrigado por escolher ${nomePresenteEscolhido}`;
+
+  //   axios
+  //     .get("https://cvtrsy.online/enviar-email", {
+  //       params: {
+  //         destinatario,
+  //         assunto,
+  //         corpo,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log(response.data);
+  //       // Lógica adicional após o envio do email com sucesso
+  //     })
+  //     .catch((error) => {
+  //       console.error("Erro ao enviar o email:", error);
+  //       // Lógica de tratamento de erro
+  //     });
+  // };
 
   const enviarDados = async (dados: FormData) => {
     try {
-      const response = await axios.post("https://cvtrsy.online/escolhidos", dados);
+      const response = await axios.post(
+        "https://cvtrsy.online/escolhidos",
+        dados
+      );
       console.log(response.data);
       verificarSucesso();
       // setTimeout(refresh, 2000);
@@ -142,7 +248,9 @@ export default function PresenteEscolhido(props: Props) {
             onChange={(event) => setNome(event.target.value)}
             fullWidth
             error={formSubmitted && nome.trim() === ""}
-            helperText={formSubmitted && nome.trim() === "" ? "Digite seu nome" : ""}
+            helperText={
+              formSubmitted && nome.trim() === "" ? "Digite seu nome" : ""
+            }
             margin="normal"
           />
           <TextField
@@ -151,7 +259,11 @@ export default function PresenteEscolhido(props: Props) {
             onChange={(event) => setTelefone(event.target.value)}
             fullWidth
             error={formSubmitted && telefone.trim() === ""}
-            helperText={formSubmitted && telefone.trim() === "" ? "Digite seu telefone" : ""}
+            helperText={
+              formSubmitted && telefone.trim() === ""
+                ? "Digite seu telefone"
+                : ""
+            }
             margin="normal"
           />
           <TextField
@@ -161,7 +273,9 @@ export default function PresenteEscolhido(props: Props) {
             fullWidth
             type="email"
             error={formSubmitted && email.trim() === ""}
-            helperText={formSubmitted && email.trim() === "" ? "Digite seu email" : ""}
+            helperText={
+              formSubmitted && email.trim() === "" ? "Digite seu email" : ""
+            }
             margin="normal"
           />
           <TextField

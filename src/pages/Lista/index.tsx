@@ -38,6 +38,7 @@ export default function Lista(props: Props) {
   const [listaCss, setListaCss] = useState(false);
   const [showLista, setShowLista] = useState(false);
   const [nomePresenteEscolhido, setNomePresenteEscolhido] = useState("");
+  const [linkPresenteEscolhido, setLinkPresenteEscolhido] = useState("");
   const [idPresenteEscolhido, setIdPresenteEscolhido] = useState(0);
 
   const navigate = useNavigate();
@@ -64,6 +65,11 @@ export default function Lista(props: Props) {
     [estilos.modoDeVizualizacao__iconList]: gridCss,
   });
 
+  const goHome = () => {
+    navigate("/");
+    setShowPresenteEscolhido(false);
+  };
+
   return (
     <div className={estilos.corpo}>
       <Atencao
@@ -72,13 +78,15 @@ export default function Lista(props: Props) {
         open={open}
         setOpen={setOpen}
       />
-      <h1 className={estilos.corpo__casal} onClick={() => navigate("/")}>
+      <h1 className={estilos.corpo__casal} onClick={goHome}>
         Gabriela e Antonio
       </h1>
       {showPresenteEscolhido && (
         <PresenteEscolhido
           nomePresenteEscolhido={nomePresenteEscolhido}
           setNomePresenteEscolhido={setNomePresenteEscolhido}
+          linkPresenteEscolhido={linkPresenteEscolhido}
+          setLinkPresenteEscolhido={setLinkPresenteEscolhido}
           showPresenteEscolhido={showPresenteEscolhido}
           setShowPresenteEscolhido={setShowPresenteEscolhido}
           idPresenteEscolhido={idPresenteEscolhido}
@@ -117,6 +125,8 @@ export default function Lista(props: Props) {
             repositorio={repositorio}
             nomePresenteEscolhido={nomePresenteEscolhido}
             setNomePresenteEscolhido={setNomePresenteEscolhido}
+            linkPresenteEscolhido={linkPresenteEscolhido}
+            setLinkPresenteEscolhido={setLinkPresenteEscolhido}
             showPresenteEscolhido={showPresenteEscolhido}
             setShowPresenteEscolhido={setShowPresenteEscolhido}
             idPresenteEscolhido={idPresenteEscolhido}

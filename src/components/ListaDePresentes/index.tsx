@@ -22,6 +22,8 @@ interface Props {
   setShowPresenteEscolhido: React.Dispatch<React.SetStateAction<boolean>>;
   idPresenteEscolhido: number;
   setIdPresenteEscolhido: React.Dispatch<React.SetStateAction<number>>;
+  linkPresenteEscolhido: string;
+  setLinkPresenteEscolhido: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function ListaDePresentes(props: Props) {
@@ -43,6 +45,8 @@ export default function ListaDePresentes(props: Props) {
     setShowPresenteEscolhido,
     idPresenteEscolhido,
     setIdPresenteEscolhido,
+    linkPresenteEscolhido,
+    setLinkPresenteEscolhido
   } = props;
 
   const [showError, setShowError] = useState(false);
@@ -92,6 +96,8 @@ export default function ListaDePresentes(props: Props) {
               setShowPresenteEscolhido={setShowPresenteEscolhido}
               idPresenteEscolhido={idPresenteEscolhido}
               setIdPresenteEscolhido={setIdPresenteEscolhido}
+              linkPresenteEscolhido={linkPresenteEscolhido}
+              setLinkPresenteEscolhido={setLinkPresenteEscolhido}
             />
           ))}
       {showError && <div>Item não encontrado.</div>}
