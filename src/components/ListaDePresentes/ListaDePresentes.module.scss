@@ -1,0 +1,17 @@
+@import "../../styles/variaveis";
+@import "../../styles/breakpoints";
+
+.corpo {
+  &__grade {
+    @apply my-2 text-center w-full flex flex-col items-center min-h-screen;
+    @media screen and (min-width: $desktop_xsm) {
+      @apply flex-row flex-wrap items-start justify-center;
+    }
+  }
+  &__lista {
+    @apply my-2 text-center w-full flex flex-col items-center min-h-screen;
+    @media screen and (min-width: $desktop_xsm) {
+      @apply flex-row flex-wrap items-start justify-center;
+    }
+  }
+}

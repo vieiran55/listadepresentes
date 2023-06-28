@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Gwendolyn&family=Poppins&display=swap");
+@import "../../styles/variaveis";
+@import "../../styles/breakpoints";
+
+.formulario{
+  @apply h-[100vh] mt-4 flex flex-col;
+}
+
+.titulo {
+  font-family: "Michroma", sans-serif;
+  @apply text-center font-bold text-sm text-azulMarinho p-4;
+  @media screen and (min-width: $tablet) {
+  @apply text-2xl;
+  }
+}
+
+.close{
+  @apply fill-red-600 self-end cursor-pointer;
+}
+
+.conteiner{
+  @apply flex flex-col w-[330px] border-2 rounded-md p-4 bg-white;
+  @media screen and (min-width: $tablet) {
+    @apply flex w-[440px] flex-col;
+  }
+}
+
+// @media (prefers-color-scheme: dark) {
+//   .formulario {
+//     @apply bg-black;
+//   }
+//   .titulo {
+//     @apply text-white;
+//   }
+//   .close {
+//     @apply fill-red-600;
+//   }
+//   .conteiner {
+//     @apply bg-gray-900 text-white;
+//   }
+// }
