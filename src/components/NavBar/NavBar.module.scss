@@ -29,7 +29,7 @@
   &__opcoes {
     @apply flex flex-row  items-center justify-around text-center w-2/6;
     @media screen and (min-width: $tablet) {
-      @apply w-[475px] justify-between;
+      @apply w-[445px] justify-between;
     }
     @media screen and (min-width: $desktop_md) {
       @apply w-[720px] justify-between;

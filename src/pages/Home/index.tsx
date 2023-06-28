@@ -3,11 +3,29 @@ import wave from "../../images/waveWhite.svg";
 import estilos from "./Home1.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import fotoCasal1 from "../../images/mairaeantonio1.jpeg";
-import fotoCasal2 from "../../images/mairaeantonio2.jpeg";
-import fotoCasal3 from "../../images/mairaeantonio3.jpeg";
-import fotoCasal4 from "../../images/mairaeantonio4.jpeg";
-import fotoCasal5 from "../../images/mairaeantonio5.jpeg";
+import aliancasouro from "../../images/aliancasOuro.png";
+import fotoCasal1 from "../../images/Selecionadas/IMG1.jpg";
+import fotoCasal2 from "../../images/Selecionadas/IMG2.jpg";
+import fotoCasal3 from "../../images/Selecionadas/IMG3.jpg";
+import fotoCasal4 from "../../images/Selecionadas/IMG4.jpg";
+import fotoCasal5 from "../../images/Selecionadas/IMG5.jpg";
+import fotoCasal6 from "../../images/Selecionadas/IMG6.jpg";
+import fotoCasal7 from "../../images/Selecionadas/IMG7.jpg";
+import fotoCasal8 from "../../images/Selecionadas/IMG8.jpg";
+import fotoCasal9 from "../../images/Selecionadas/IMG9.jpg";
+import fotoCasal10 from "../../images/Selecionadas/IMG10.jpg";
+import fotoCasal11 from "../../images/Selecionadas/IMG11.jpg";
+import fotoCasal12 from "../../images/Selecionadas/IMG12.jpg";
+import fotoCasal13 from "../../images/Selecionadas/IMG13.jpg";
+import fotoCasal14 from "../../images/Selecionadas/IMG14.jpg";
+import fotoCasal15 from "../../images/Selecionadas/IMG15.jpg";
+import fotoCasal16 from "../../images/Selecionadas/IMG16.jpg";
+import fotoCasal17 from "../../images/Selecionadas/IMG17.jpg";
+import fotoCasal18 from "../../images/Selecionadas/IMG18.jpg";
+import fotoCasal19 from "../../images/Selecionadas/IMG19.jpg";
+import fotoCasal20 from "../../images/Selecionadas/IMG20.jpg";
+import fotoCasal21 from "../../images/Selecionadas/IMG21.jpg";
+
 import { useInView } from "react-intersection-observer";
 import NavBar from "../../components/NavBar";
 
@@ -23,6 +41,22 @@ export default function Home() {
     threshold: 0,
   });
 
+  const topo = () => {
+    navigate("/lista");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const topo2 = () => {
+    navigate("/presenca");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <div className={estilos.central}>
@@ -34,7 +68,7 @@ export default function Home() {
             <div className={estilos.entrada__casalConteiner}>
               <div className={estilos.entrada__casal}>
                 <h1 className={estilos.entrada__casal__titulo}>
-                  Maira e Antônio
+                  Gabriela e Antônio
                 </h1>
               </div>
               <div className={estilos.central__cartaoBotoesDesktop}>
@@ -57,28 +91,28 @@ export default function Home() {
               </div>
             </div>
             <div className={estilos.entrada__foto}>
-              <img
+              {/* <img
                 src={fotoCasal4}
                 alt={fotoCasal4}
                 className={estilos.entrada__foto__imagem}
-              />
+              /> */}
+              <div className={estilos.heart}></div>
               <div className={estilos.entrada__cartaoInferior}>
                 <h2 className={estilos.entrada__cartaoInferior__text}>
                   30|Jul|23
                 </h2>
               </div>
               <div className={estilos.entrada__flor4}></div>
+              <div className={estilos.tituloCoracao__conteiner}>
+                <h1 className={estilos.tituloCoracao__titulos}>Ao seu lado, encontrei o amor que sempre sonhei...</h1>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className="bg-gold">
-        <div
-          id="sobre"
-          ref={ref}
-          className={`${inView ? estilos.sobre : estilos.sobre2}`}
-        >
+        <div id="sobre" className={estilos.sobre}>
           <h2 className={estilos.sobre__titulo}>
             Sua presença é muito importante para nós!
           </h2>
@@ -88,7 +122,7 @@ export default function Home() {
               clicando no link abaixo até o dia
               <a className={estilos.sobre__destaque}> XX/XX/XX.</a>
             </p>
-            <Button variant="contained" onClick={() => navigate("/presenca")}>
+            <Button variant="contained" onClick={topo2}>
               Confirmar Presenca
             </Button>
             <p className={estilos.sobre__texto}>
@@ -109,100 +143,112 @@ export default function Home() {
               jornada juntos. Se desejar nos presentear, você pode acessar nossa
               lista de presentes no link abaixo:
             </p>
-            <Button variant="contained">
-              <Link to={"https://www.finalfeliz.de/maira-antonio23092023"}>
+            <Button variant="contained" onClick={topo}>
                 Lista de Presentes
-              </Link>
             </Button>
             <p className={estilos.sobre__textoFinal}>Com carinho,</p>
             <p className={estilos.sobre__textoFinal}>
-              <a className={estilos.sobre__destaque}>MAIRA E ANTÔNIO</a>
+              <a className={estilos.sobre__destaque}>GABRIELA E ANTÔNIO</a>
             </p>
           </div>
         </div>
       </div>
 
       <div className="bg-gold">
-        <div
-          id="momentos"
-          ref={ref2}
-          className={`${inView2 ? estilos.galeria : estilos.galeria2}`}
-        >
+        <div id="momentos" className={estilos.galeria}>
           <h1 className={estilos.galeria__titulo}>
             O amor é o laço que nos une para sempre.
           </h1>
           <div className={estilos.galerias}>
             <div className={estilos.galeria__fotos}>
-              <img
-                src={fotoCasal2}
-                alt={fotoCasal2}
-                className={estilos.galeria__fotos__images}
-              />
-              <img
-                src={fotoCasal3}
-                alt={fotoCasal3}
-                className={estilos.galeria__fotos__images}
-              />
-
-              <img
-                src={fotoCasal1}
-                alt={fotoCasal1}
-                className={estilos.galeria__fotos__images}
-              />
-
-              <img
-                src={fotoCasal5}
-                alt={fotoCasal5}
-                className={estilos.galeria__fotos__images}
-              />
+              <div>
+                <img
+                  src={fotoCasal2}
+                  alt={fotoCasal2}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal15}
+                  alt={fotoCasal15}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal13}
+                  alt={fotoCasal13}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal10}
+                  alt={fotoCasal10}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
             </div>
             <div className={estilos.galeria__fotos2}>
-              <img
-                src={fotoCasal2}
-                alt={fotoCasal2}
-                className={estilos.galeria__fotos__images}
-              />
-              <img
-                src={fotoCasal3}
-                alt={fotoCasal3}
-                className={estilos.galeria__fotos__images}
-              />
-
-              <img
-                src={fotoCasal1}
-                alt={fotoCasal1}
-                className={estilos.galeria__fotos__images}
-              />
-
-              <img
-                src={fotoCasal5}
-                alt={fotoCasal5}
-                className={estilos.galeria__fotos__images}
-              />
+              <div>
+                <img
+                  src={fotoCasal11}
+                  alt={fotoCasal11}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal6}
+                  alt={fotoCasal6}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal9}
+                  alt={fotoCasal9}
+                  className={estilos.galeria__fotos__images9}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal14}
+                  alt={fotoCasal14}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
             </div>
             <div className={estilos.galeria__fotos3}>
-              <img
-                src={fotoCasal2}
-                alt={fotoCasal2}
-                className={estilos.galeria__fotos__images}
-              />
-              <img
-                src={fotoCasal3}
-                alt={fotoCasal3}
-                className={estilos.galeria__fotos__images}
-              />
-
-              <img
-                src={fotoCasal1}
-                alt={fotoCasal1}
-                className={estilos.galeria__fotos__images}
-              />
-
-              <img
-                src={fotoCasal5}
-                alt={fotoCasal5}
-                className={estilos.galeria__fotos__images}
-              />
+              <div>
+                <img
+                  src={fotoCasal21}
+                  alt={fotoCasal21}
+                  className={estilos.galeria__fotos__images21}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal17}
+                  alt={fotoCasal17}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal20}
+                  alt={fotoCasal20}
+                  className={estilos.galeria__fotos__images20}
+                />
+              </div>
+              <div>
+                <img
+                  src={fotoCasal19}
+                  alt={fotoCasal19}
+                  className={estilos.galeria__fotos__images}
+                />
+              </div>
             </div>
           </div>
         </div>
