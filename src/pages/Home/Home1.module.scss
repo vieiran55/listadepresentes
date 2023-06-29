@@ -60,10 +60,10 @@
   @media screen and (min-width: 1500px) {
     background-size: 60%;
   }
-  @media screen and (min-width: 1920px) {
-    background-position: 50% -34%;
-    @apply justify-center;
-  }
+  // @media screen and (min-width: 1920px) {
+  //   background-position: 50% -34%;
+  //   @apply justify-center;
+  // }
   &__casalConteiner {
     @apply flex flex-col justify-around hidden;
   }
@@ -124,25 +124,41 @@
     @media screen and (min-width: 1360px) {
       bottom: -63px;
       right: -1px;
+      background-size: 85%;
     }
   }
   &__cartaoInferior {
-    bottom: -15px;
+    bottom: 4px;
     left: 28%;
-    @apply absolute rounded-lg w-36 bg-gold;
+    background-image: url("../../images/papelRasgado.png");
+    background-size: 108%;
+    background-position: 54% 85%;
+    background-repeat: no-repeat;
+    @apply absolute rounded-lg w-40 h-20 z-20;
+    @media screen and (min-width: $tablet) {
+      bottom: 16px;
+      left: 40%;
+      height: 8rem;
+      width: 14rem;
+    }
     @media screen and (min-width: $desktop_xl) {
       bottom: -50px;
       left: 6%;
       @apply w-full h-1/6;
     }
     @media screen and (min-width: 1360px) {
-      bottom: -81px;
-      left: 4%;
-      z-index: 3;
+      bottom: -135px;
+      left: 25%;
+      
+    height: 60.666667%;
+    width: 63%;
     }
     &__text {
       font-family: "Gwendolyn", cursive;
-      @apply self-start text-3xl text-black text-center flex flex-col justify-center items-center;
+      @apply self-start text-3xl text-black text-center flex flex-col justify-center items-center h-full;
+      @media screen and (min-width: $tablet) {
+      @apply text-4xl
+      }
       @media screen and (min-width: $desktop_xl) {
         @apply text-[6rem] text-black h-full;
       }
@@ -150,6 +166,7 @@
         bottom: -81px;
         left: 24%;
         font-size: 4rem;
+        height: 126%;
       }
     }
   }
@@ -199,16 +216,13 @@
   @media screen and (min-width: 767px) {
     @apply w-[37rem] h-[42rem] z-10;
   }
-  @media screen and (min-width: $desktop_xl) {
-    background-size: 100%;
-    @apply w-[37rem] h-[42rem] z-10;
-  }
   @media screen and (min-width: 1360px) {
+    background-size: 100%;
     @apply w-[32rem] h-[30rem] z-10;
   }
-  @media screen and (min-width: 1720px) {
-    @apply w-[45rem] h-[43rem] z-10;
-  }
+  // @media screen and (min-width: 1720px) {
+  //   @apply w-[45rem] h-[43rem] z-10;
+  // }
 }
 
 .sobre {
@@ -227,12 +241,12 @@
       @apply text-2xl;
     }
     @media screen and (min-width: 1080px) {
-      @apply text-6xl;
+      @apply text-4xl;
     }
   }
   &__conteinerTextos {
     @media screen and (min-width: 767px) {
-      @apply w-[720px] h-[530px] text-black;
+      @apply w-[720px] h-[670px] text-black;
     }
     @media screen and (min-width: 1080px) {
       @apply w-[1000px] h-[700px] text-black;

@@ -104,151 +104,156 @@ export default function Home() {
               </div>
               <div className={estilos.entrada__flor4}></div>
               <div className={estilos.tituloCoracao__conteiner}>
-                <h1 className={estilos.tituloCoracao__titulos}>Ao seu lado, encontrei o amor que sempre sonhei...</h1>
+                <h1 className={estilos.tituloCoracao__titulos}>
+                  Ao seu lado, encontrei o amor que sempre sonhei...
+                </h1>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-gold">
-        <div id="sobre" className={estilos.sobre}>
-          <h2 className={estilos.sobre__titulo}>
-            Sua presença é muito importante para nós!
-          </h2>
-          <div className={estilos.sobre__conteinerTextos}>
-            <p className={estilos.sobre__texto}>
-              Para uma melhor organização, solicitamos que confirme sua presença
-              clicando no link abaixo até o dia
-              <a className={estilos.sobre__destaque}> XX/XX/XX.</a>
-            </p>
-            <Button variant="contained" onClick={topo2}>
-              Confirmar Presenca
-            </Button>
-            <p className={estilos.sobre__texto}>
-              Ressaltamos a importância de confirmar sua presença, bem como a
-              presença dos membros de sua família que irão acompanhá-lo no dia
-              do evento, para que possamos ter um controle adequado. Caso não
-              seja possível comparecer, compreendemos e esperamos que possamos
-              marcar um encontro em breve.
-            </p>
-            <p className={estilos.sobre__texto}>
-              Observação: A ausência de confirmação até a data estipulada
-              implicará no entendimento de que não comparecerá e resultará na
-              exclusão de seu nome da lista.
-            </p>
-            <p className={estilos.sobre__texto}>
-              Além disso, criamos uma lista de presentes com muito amor e
-              cuidado, contendo itens que nos ajudarão a iniciar nossa nova
-              jornada juntos. Se desejar nos presentear, você pode acessar nossa
-              lista de presentes no link abaixo:
-            </p>
-            <Button variant="contained" onClick={topo}>
-                Lista de Presentes
-            </Button>
-            <p className={estilos.sobre__textoFinal}>Com carinho,</p>
-            <p className={estilos.sobre__textoFinal}>
-              <a className={estilos.sobre__destaque}>GABRIELA E ANTÔNIO</a>
-            </p>
-          </div>
+      <div id="sobre" className={estilos.sobre}>
+        <h2 className={estilos.sobre__titulo}>
+          A Cerimônia de Casamento: Celebrando o Amor e a União
+        </h2>
+        <div className={estilos.sobre__conteinerTextos}>
+          <p className={estilos.sobre__texto}>
+            É com grande alegria que anunciamos a realização da nossa cerimônia
+            de casamento! No dia{" "}
+            <a className={estilos.sobre__destaque}> 17 de Julho</a>, daremos um
+            importante passo em nossas vidas ao oficializar nossa união no
+            casamento civil. Gostaríamos de compartilhar esse momento especial
+            com todos aqueles que nos são queridos, mas, devido ao número
+            limitado de pessoas permitidas no cartório, não poderemos receber
+            todos os convidados pessoalmente.
+          </p>
+          <p className={estilos.sobre__texto}>
+            No entanto, para celebrar essa ocasião significativa, organizaremos
+            um almoço de comemoração no dia{" "}
+            <a className={estilos.sobre__destaque}> 30 de Julho.</a> Será uma
+            oportunidade de nos reunirmos e celebrarmos juntos a nossa
+            felicidade. Gostaríamos muito de ter você presente nesse momento de
+            alegria e amor.
+          </p>
+          <p className={estilos.sobre__texto}>
+            Para facilitar o planejamento do evento e garantir que todos sejam
+            acomodados adequadamente, pedimos a gentileza de confirmar sua
+            presença através do link abaixo até o dia{" "}
+            <a className={estilos.sobre__destaque}> 24 de Julho.</a>
+          </p>
+          <Button variant="contained" onClick={topo2}>
+            Confirmar Presenca
+          </Button>
+          <p className={estilos.sobre__texto}>
+            Além disso, criamos uma lista de presentes com muito amor e cuidado,
+            contendo itens que nos ajudarão a iniciar nossa nova jornada juntos.
+            Se desejar nos presentear, você pode acessar nossa lista de
+            presentes no link abaixo:
+          </p>
+          <Button variant="contained" onClick={topo}>
+            Lista de Presentes
+          </Button>
+          <p className={estilos.sobre__textoFinal}>Com carinho,</p>
+          <p className={estilos.sobre__textoFinal}>
+            <a className={estilos.sobre__destaque}>GABRIELA E ANTÔNIO</a>
+          </p>
         </div>
       </div>
 
-      <div className="bg-gold">
-        <div id="momentos" className={estilos.galeria}>
-          <h1 className={estilos.galeria__titulo}>
-            O amor é o laço que nos une para sempre.
-          </h1>
-          <div className={estilos.galerias}>
-            <div className={estilos.galeria__fotos}>
-              <div>
-                <img
-                  src={fotoCasal2}
-                  alt={fotoCasal2}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal15}
-                  alt={fotoCasal15}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal13}
-                  alt={fotoCasal13}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal10}
-                  alt={fotoCasal10}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
+      <div id="momentos" className={estilos.galeria}>
+        <h1 className={estilos.galeria__titulo}>
+          O amor é o laço que nos une para sempre.
+        </h1>
+        <div className={estilos.galerias}>
+          <div className={estilos.galeria__fotos}>
+            <div>
+              <img
+                src={fotoCasal2}
+                alt={fotoCasal2}
+                className={estilos.galeria__fotos__images}
+              />
             </div>
-            <div className={estilos.galeria__fotos2}>
-              <div>
-                <img
-                  src={fotoCasal11}
-                  alt={fotoCasal11}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal6}
-                  alt={fotoCasal6}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal9}
-                  alt={fotoCasal9}
-                  className={estilos.galeria__fotos__images9}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal14}
-                  alt={fotoCasal14}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
+            <div>
+              <img
+                src={fotoCasal15}
+                alt={fotoCasal15}
+                className={estilos.galeria__fotos__images}
+              />
             </div>
-            <div className={estilos.galeria__fotos3}>
-              <div>
-                <img
-                  src={fotoCasal21}
-                  alt={fotoCasal21}
-                  className={estilos.galeria__fotos__images21}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal17}
-                  alt={fotoCasal17}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal20}
-                  alt={fotoCasal20}
-                  className={estilos.galeria__fotos__images20}
-                />
-              </div>
-              <div>
-                <img
-                  src={fotoCasal19}
-                  alt={fotoCasal19}
-                  className={estilos.galeria__fotos__images}
-                />
-              </div>
+            <div>
+              <img
+                src={fotoCasal13}
+                alt={fotoCasal13}
+                className={estilos.galeria__fotos__images}
+              />
+            </div>
+            <div>
+              <img
+                src={fotoCasal10}
+                alt={fotoCasal10}
+                className={estilos.galeria__fotos__images}
+              />
+            </div>
+          </div>
+          <div className={estilos.galeria__fotos2}>
+            <div>
+              <img
+                src={fotoCasal11}
+                alt={fotoCasal11}
+                className={estilos.galeria__fotos__images}
+              />
+            </div>
+            <div>
+              <img
+                src={fotoCasal6}
+                alt={fotoCasal6}
+                className={estilos.galeria__fotos__images}
+              />
+            </div>
+            <div>
+              <img
+                src={fotoCasal9}
+                alt={fotoCasal9}
+                className={estilos.galeria__fotos__images9}
+              />
+            </div>
+            <div>
+              <img
+                src={fotoCasal14}
+                alt={fotoCasal14}
+                className={estilos.galeria__fotos__images}
+              />
+            </div>
+          </div>
+          <div className={estilos.galeria__fotos3}>
+            <div>
+              <img
+                src={fotoCasal21}
+                alt={fotoCasal21}
+                className={estilos.galeria__fotos__images21}
+              />
+            </div>
+            <div>
+              <img
+                src={fotoCasal17}
+                alt={fotoCasal17}
+                className={estilos.galeria__fotos__images}
+              />
+            </div>
+            <div>
+              <img
+                src={fotoCasal20}
+                alt={fotoCasal20}
+                className={estilos.galeria__fotos__images20}
+              />
+            </div>
+            <div>
+              <img
+                src={fotoCasal19}
+                alt={fotoCasal19}
+                className={estilos.galeria__fotos__images}
+              />
             </div>
           </div>
         </div>
