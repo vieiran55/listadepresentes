@@ -47,6 +47,7 @@ export default function Presenca() {
   const [nomePessoaSelecionado, setNomePessoaSelecionado] =
     useState<string>("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const localizacao = "https://goo.gl/maps/QdNes1LvHq2EnnVw8";
 
   useEffect(() => {
     axios
@@ -107,6 +108,7 @@ export default function Presenca() {
 
           - Nome: ${nomeSelecionado}
           - Pessoas que irão com você: ${nomesPessoasAdicionais}
+          - Localização: ${localizacao}
 
           ------------------------------
 
@@ -120,7 +122,7 @@ export default function Presenca() {
 
         - Nome: ${nomeSelecionado}
         - E-mail: ${email}
-        - Pessoas que irão com você: ${nomesPessoasAdicionais}
+        - Pessoas que irão o convidado: ${nomesPessoasAdicionais}
 
         ------------------------------
 
@@ -221,13 +223,16 @@ export default function Presenca() {
       <form onSubmit={handleConfirmation} className={estilos.formulario}>
         <div className={estilos.formulario__cabecalho}>
           <div className={estilos.formulario__lateraisEsq}></div>
-          <div
-            className={estilos.formulario__casal}
-            onClick={() => navigate("/")}
-          >
-            <h1 className={estilos.formulario__casal__titulo}>
-              Gabriela e Antônio
-            </h1>
+          <div className={estilos.formulario__casalConteiner}>
+            <div
+              className={estilos.formulario__casal}
+              onClick={() => navigate("/")}
+            >
+              <h1 className={estilos.formulario__casal__titulo}>
+                Gabriela e Antônio
+              </h1>
+            </div>
+
           </div>
           <div className={estilos.formulario__lateraisDir}></div>
         </div>

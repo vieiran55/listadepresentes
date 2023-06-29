@@ -99,7 +99,11 @@ export default function PresenteEscolhido(props: Props) {
     const corpo = `
     Querido(a) ${nome},
 
-    Muito obrigado por escolher nos presentear! Você nos surpreendeu e fez nossos corações sorrirem. Você é demais!
+    Estamos escrevendo para expressar nossa sincera gratidão pelo presente maravilhoso que você nos deu em nosso casamento.
+
+    Somos muito gratos por sua generosidade e consideração. É um grande prazer ter amigos como você que pensam em nós nesses momentos especiais. O presente que você escolheu será uma lembrança preciosa de nosso casamento e um símbolo de sua amizade duradoura.
+
+    Mais uma vez, muito obrigado(a) pelo presente fantástico que você nos deu. Agradecemos muito sua amizade, carinho e apoio contínuo.
 
     Com carinho,
     GABRIELA E ANTÔNIO
