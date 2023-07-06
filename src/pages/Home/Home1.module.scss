@@ -4,12 +4,19 @@
 @import "../../styles/variaveis";
 @import "../../styles/breakpoints";
 
+.carregando{
+  @apply h-[100vh] w-full flex flex-col items-center justify-around;
+  &__titulos{
+    @apply flex flex-col items-center;
+  }
+}
+
 .central {
   background-image: url("../../images/bgFloral.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  @apply bg-gold;
+  @apply bg-gold animate-fadeinDown;
   &__cartaoBotoes {
     @apply absolute flex flex-row w-36;
     @apply flex flex-row items-center justify-between mt-4;
@@ -530,4 +537,24 @@
 .galeria__fotos3 div:nth-child(3),
 .galeria__fotos3 div:nth-child(4) {
   width: 49%;
+}
+
+
+.loadingBar {
+  width: 300px;
+  height: 20px;
+  border: 1px solid #000;
+}
+
+.loadingBarFill {
+  width: 0%;
+  height: 100%;
+  background-color: #4CAF50;
+  animation-name: fill;
+  animation-duration: 4s;
+}
+
+@keyframes fill {
+  from {width: 0%;}
+  to {width: 100%;}
 }

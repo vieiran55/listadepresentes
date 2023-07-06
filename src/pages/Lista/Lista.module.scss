@@ -16,6 +16,10 @@
   }
 }
 
+.carregando{
+  @apply w-full h-[70vh] flex flex-col items-center justify-around;
+}
+
 .corpo {
   font-family: "Poppins", sans-serif;
   background-image: url("../../images/florido.png");

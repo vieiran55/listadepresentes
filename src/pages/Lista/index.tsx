@@ -4,13 +4,14 @@ import ListaDePresentes from "../../components/ListaDePresentes";
 import estilos from "./Lista.module.scss";
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdOutlineGridView } from "react-icons/md";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { BsArrowUpCircleFill } from "react-icons/bs";
 import Repositorio from "../../components/Repositorio";
 import { IOpcoes } from "../../interfaces/IOpcoes";
 import PresenteEscolhido from "../../components/PresenteEscolhido";
+import CircularProgress from "@mui/joy/CircularProgress";
 
 interface Props {
   open: boolean;
@@ -70,6 +71,16 @@ export default function Lista(props: Props) {
     setShowPresenteEscolhido(false);
   };
 
+  const [carregando, setCarregando] = useState(true);
+
+  const Carregando = () => {
+    setCarregando(false);
+  };
+
+  useEffect(() => {
+    setTimeout(Carregando, 2500);
+  }, []);
+
   return (
     <div className={estilos.corpo}>
       <Atencao
@@ -81,16 +92,11 @@ export default function Lista(props: Props) {
       {/* <h1 className={estilos.corpo__casal} >
         Gabriela e Antonio
       </h1> */}
-      <div className={estilos.corpo__cabecalho} >
+      <div className={estilos.corpo__cabecalho}>
         <div className={estilos.corpo__lateraisEsq}></div>
         <div className={estilos.corpo__casalConteiner}>
-          <div
-            className={estilos.corpo__casal}
-            onClick={goHome}
-          >
-            <h1 className={estilos.corpo__casal__titulo}>
-              Gabriela e Antônio
-            </h1>
+          <div className={estilos.corpo__casal} onClick={goHome}>
+            <h1 className={estilos.corpo__casal__titulo}>Gabriela e Antônio</h1>
           </div>
         </div>
         <div className={estilos.corpo__lateraisDir}></div>
@@ -125,31 +131,40 @@ export default function Lista(props: Props) {
             repositorio={repositorio}
             setRepositorio={setRepositorio}
           />
-          <ListaDePresentes
-            open={open}
-            setOpen={setOpen}
-            busca={busca}
-            setBusca={setBusca}
-            gridCss={gridCss}
-            setGridCss={setGridCss}
-            listaCss={listaCss}
-            setListaCss={setListaCss}
-            showLista={showLista}
-            setShowLista={setShowLista}
-            repositorio={repositorio}
-            nomePresenteEscolhido={nomePresenteEscolhido}
-            setNomePresenteEscolhido={setNomePresenteEscolhido}
-            linkPresenteEscolhido={linkPresenteEscolhido}
-            setLinkPresenteEscolhido={setLinkPresenteEscolhido}
-            showPresenteEscolhido={showPresenteEscolhido}
-            setShowPresenteEscolhido={setShowPresenteEscolhido}
-            idPresenteEscolhido={idPresenteEscolhido}
-            setIdPresenteEscolhido={setIdPresenteEscolhido}
-          />
-          <button className={estilos.botoes__tipo__up} onClick={topo}>
-            <BsArrowUpCircleFill />
-            VOLTAR AO TOPO
-          </button>
+          {carregando && 
+          <div className={estilos.carregando}>
+            <CircularProgress size="lg" variant="soft" />
+          </div>
+          }
+          {!carregando && (
+            <>
+              <ListaDePresentes
+                open={open}
+                setOpen={setOpen}
+                busca={busca}
+                setBusca={setBusca}
+                gridCss={gridCss}
+                setGridCss={setGridCss}
+                listaCss={listaCss}
+                setListaCss={setListaCss}
+                showLista={showLista}
+                setShowLista={setShowLista}
+                repositorio={repositorio}
+                nomePresenteEscolhido={nomePresenteEscolhido}
+                setNomePresenteEscolhido={setNomePresenteEscolhido}
+                linkPresenteEscolhido={linkPresenteEscolhido}
+                setLinkPresenteEscolhido={setLinkPresenteEscolhido}
+                showPresenteEscolhido={showPresenteEscolhido}
+                setShowPresenteEscolhido={setShowPresenteEscolhido}
+                idPresenteEscolhido={idPresenteEscolhido}
+                setIdPresenteEscolhido={setIdPresenteEscolhido}
+              />
+              <button className={estilos.botoes__tipo__up} onClick={topo}>
+                <BsArrowUpCircleFill />
+                VOLTAR AO TOPO
+              </button>
+            </>
+          )}
         </>
       )}
     </div>
