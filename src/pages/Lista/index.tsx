@@ -78,9 +78,23 @@ export default function Lista(props: Props) {
         open={open}
         setOpen={setOpen}
       />
-      <h1 className={estilos.corpo__casal} onClick={goHome}>
+      {/* <h1 className={estilos.corpo__casal} >
         Gabriela e Antonio
-      </h1>
+      </h1> */}
+      <div className={estilos.corpo__cabecalho} >
+        <div className={estilos.corpo__lateraisEsq}></div>
+        <div className={estilos.corpo__casalConteiner}>
+          <div
+            className={estilos.corpo__casal}
+            onClick={goHome}
+          >
+            <h1 className={estilos.corpo__casal__titulo}>
+              Gabriela e Antônio
+            </h1>
+          </div>
+        </div>
+        <div className={estilos.corpo__lateraisDir}></div>
+      </div>
       {showPresenteEscolhido && (
         <PresenteEscolhido
           nomePresenteEscolhido={nomePresenteEscolhido}

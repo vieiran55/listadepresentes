@@ -8,7 +8,7 @@
 
 .titulo {
   font-family: "Michroma", sans-serif;
-  @apply text-center font-bold text-sm text-azulMarinho p-4;
+  @apply text-center font-bold text-sm text-rubi  p-4;
   @media screen and (min-width: $tablet) {
   @apply text-2xl;
   }
