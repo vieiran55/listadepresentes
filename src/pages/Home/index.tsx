@@ -26,6 +26,8 @@ import fotoCasal19 from "../../images/Selecionadas/IMG19.jpg";
 import fotoCasal20 from "../../images/Selecionadas/IMG20.jpg";
 import fotoCasal21 from "../../images/Selecionadas/IMG21.jpg";
 
+import fotoCasalDesenho from "../../images/casalDesenho.png";
+
 import CircularProgress from "@mui/joy/CircularProgress";
 
 import { useInView } from "react-intersection-observer";
@@ -73,6 +75,9 @@ export default function Home() {
     <>
       {carregando && (
         <div className={estilos.carregando}>
+          <div className={estilos.carregando__desenho}>
+            <img className={estilos.carregando__desenho__imagem} src={fotoCasalDesenho} alt="" />
+          </div>
           <div className={estilos.carregando__titulos}>
             <div className={estilos.entrada__casal}>
               <h1 className={estilos.entrada__casal__titulo}>

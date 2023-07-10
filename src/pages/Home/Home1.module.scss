@@ -5,9 +5,17 @@
 @import "../../styles/breakpoints";
 
 .carregando{
-  @apply h-[100vh] w-full flex flex-col items-center justify-around;
+  @apply h-[100vh] w-full flex flex-col items-center justify-center;
   &__titulos{
     @apply flex flex-col items-center;
+  }
+  &__desenho{
+    @apply animate-pulse;
+    &__imagem{
+      @media screen and (min-width: 767px) {
+        @apply h-[34rem] w-[27rem] flex;
+      }
+    }
   }
 }
 
