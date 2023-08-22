@@ -20,11 +20,7 @@
 }
 
 .central {
-  background-image: url("../../images/bgFloral.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  @apply bg-gold animate-fadeinDown;
+  @apply bg-white animate-fadeinDown;
   &__cartaoBotoes {
     @apply absolute flex flex-row w-36;
     @apply flex flex-row items-center justify-between mt-4;
@@ -73,7 +69,7 @@
     background-size: 70%;
   }
   @media screen and (min-width: 1500px) {
-    background-size: 60%;
+    background-size: 30%;
   }
   // @media screen and (min-width: 1920px) {
   //   background-position: 50% -34%;
@@ -187,12 +183,11 @@
   }
 }
 .tituloCoracao__conteiner {
-  transform: translateY(50%) translateX(8%);
   z-index: 11;
   font-family: "Great Vibes", cursive;
   @apply flex flex-row w-full justify-evenly absolute;
   @media screen and (min-width: $desktop_xl) {
-    transform: translateY(50%) translateX(70%);
+    transform: translateY(-6%) translateX(86%);
   }
 }
 .tituloCoracao__aliancas {
@@ -220,7 +215,7 @@
 }
 
 .heart {
-  background-image: url("../../images/gabieantonio.jpg");
+  background-image: url("../../images/2023-07-17 - Casamento Civil - Gabriela e Antônio (315).jpg");
   background-size: 119%;
   background-position: cover;
   mask-image: url("../../images/s2.png");
@@ -241,56 +236,15 @@
 }
 
 .sobre {
-  @apply bg-[#e5dbc5] text-center ;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(229,219,197,1) 30%);
+  @apply text-center ;
   font-family: "Poppins", cursive;
   @media screen and (min-width: 767px) {
     @apply flex flex-col items-center justify-around;
   }
   @media screen and (min-width: 1080px) {
-    @apply h-[830px] items-center;
-  }
-  &__titulo {
-    font-family: "Permanent Marker", cursive;
-    @apply text-lg mb-2;
-    @media screen and (min-width: 767px) {
-      @apply text-2xl;
-    }
-    @media screen and (min-width: 1080px) {
-      @apply text-4xl;
-    }
-  }
-  &__conteinerTextos {
-    @media screen and (min-width: 767px) {
-      @apply w-[720px] h-[670px] text-black;
-    }
-    @media screen and (min-width: 1080px) {
-      @apply w-[1000px] h-[700px] text-black;
-    }
-  }
-  &__conteinerTextosEsquerd {
-    @media screen and (min-width: 767px) {
-      @apply w-1/2  px-5;
-    }
-  }
-  &__conteinerTextosDireita {
-    @media screen and (min-width: 767px) {
-      @apply w-1/2  px-5;
-    }
-  }
-  &__texto {
-    @apply text-center my-4 px-2;
-    @media screen and (min-width: 1080px) {
-      @apply text-xl;
-    }
-  }
-  &__textoFinal {
-    @apply text-center mt-6 px-2;
-    @media screen and (min-width: 1080px) {
-      @apply text-xl;
-    }
-  }
-  &__destaque {
-    @apply font-bold;
+    @apply items-center;
   }
 }
 

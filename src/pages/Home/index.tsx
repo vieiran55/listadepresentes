@@ -3,28 +3,6 @@ import wave from "../../images/waveWhite.svg";
 import estilos from "./Home1.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import aliancasouro from "../../images/aliancasOuro.png";
-import fotoCasal1 from "../../images/Selecionadas/IMG1.jpg";
-import fotoCasal2 from "../../images/Selecionadas/IMG2.jpg";
-import fotoCasal3 from "../../images/Selecionadas/IMG3.jpg";
-import fotoCasal4 from "../../images/Selecionadas/IMG4.jpg";
-import fotoCasal5 from "../../images/Selecionadas/IMG5.jpg";
-import fotoCasal6 from "../../images/Selecionadas/IMG6.jpg";
-import fotoCasal7 from "../../images/Selecionadas/IMG7.jpg";
-import fotoCasal8 from "../../images/Selecionadas/IMG8.jpg";
-import fotoCasal9 from "../../images/Selecionadas/IMG9.jpg";
-import fotoCasal10 from "../../images/Selecionadas/IMG10.jpg";
-import fotoCasal11 from "../../images/Selecionadas/IMG11.jpg";
-import fotoCasal12 from "../../images/Selecionadas/IMG12.jpg";
-import fotoCasal13 from "../../images/Selecionadas/IMG13.jpg";
-import fotoCasal14 from "../../images/Selecionadas/IMG14.jpg";
-import fotoCasal15 from "../../images/Selecionadas/IMG15.jpg";
-import fotoCasal16 from "../../images/Selecionadas/IMG16.jpg";
-import fotoCasal17 from "../../images/Selecionadas/IMG17.jpg";
-import fotoCasal18 from "../../images/Selecionadas/IMG18.jpg";
-import fotoCasal19 from "../../images/Selecionadas/IMG19.jpg";
-import fotoCasal20 from "../../images/Selecionadas/IMG20.jpg";
-import fotoCasal21 from "../../images/Selecionadas/IMG21.jpg";
 
 import fotoCasalDesenho from "../../images/casalDesenho.png";
 
@@ -33,6 +11,7 @@ import CircularProgress from "@mui/joy/CircularProgress";
 import { useInView } from "react-intersection-observer";
 import NavBar from "../../components/NavBar";
 import { useEffect, useState } from "react";
+import Galeria from "../../components/Galeria";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -134,23 +113,21 @@ export default function Home() {
                       className={estilos.entrada__foto__imagem}
                     /> */}
                   <div className={estilos.heart}></div>
-                  <div className={estilos.entrada__cartaoInferior}>
-                    <h2 className={estilos.entrada__cartaoInferior__text}>
-                      30|Jul|23
-                    </h2>
-                  </div>
                   <div className={estilos.entrada__flor4}></div>
                   <div className={estilos.tituloCoracao__conteiner}>
                     <h1 className={estilos.tituloCoracao__titulos}>
-                      Ao seu lado, encontrei o amor que sempre sonhei...
+                      {"Dissemos 'sim' ao próximo capítulo de nossa história."}
                     </h1>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div className={estilos.sobre}>
+            <Galeria />
+          </div>
 
-          <div id="sobre" className={estilos.sobre}>
+          {/* <div id="sobre" className={estilos.sobre}>
             <h2 className={estilos.sobre__titulo}>
               A Cerimônia de Casamento: Celebrando o Amor e a União
             </h2>
@@ -294,9 +271,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </>
       )}
     </>
   );
 }
+
+

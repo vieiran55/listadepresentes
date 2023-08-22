@@ -1,0 +1,277 @@
+@import "../../styles/variaveis";
+@import "../../styles/breakpoints";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+
+@media screen and (max-width: 2000px) {
+  /* Defina um valor adequado para o tamanho máximo */
+  .projetos {
+    /* Adicione as propriedades necessárias para ajustar o layout */
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+
+
+.projetos{
+  @apply flex flex-col w-11/12 my-7;
+  &__titulos{
+    @apply flex flex-row mb-2;
+  }
+}
+
+
+.projetos__links__itemConteiner{
+  @apply flex flex-row;
+}
+
+.projetos__links__item{
+  @apply mx-1 flex flex-row justify-center items-center border-2 rounded-md border-black  h-8 w-24 text-black bg-black;
+  &:hover{
+    @apply border-2 border-black rounded-md cursor-pointer w-24 text-black bg-black transition delay-150 ease-in;
+  }
+  @media screen and (min-width: 800px) {
+    @apply justify-evenly h-10 w-24;
+  }
+  &__icon{
+    @apply h-6 w-6 mr-1 text-black;
+  }
+}
+
+
+.principal:hover .projetos__links__conteiner{
+  @media screen and (min-width: 801px) {
+    @apply flex flex-row justify-between;
+  }
+}
+
+
+.conteiner{
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 20px; /* Ajuste a quantidade de padding conforme necessário */
+  pointer-events: all;
+  @apply   h-full w-full m-auto py-16 px-4 relative flex flex-col items-center justify-between;
+  @media screen and (min-width: 670px) {
+    pointer-events: all;
+    &:hover .botaoLeft{
+      @apply block;
+    }
+    &:hover .botaoRight{
+      @apply block;
+    }
+  }
+  }
+
+.conteinerFotos{
+  scroll-snap-type: x mandatory;
+  @apply flex flex-col relative w-[90vw] items-center;
+  @media screen and (min-width: 2000px) {
+    @apply w-full;
+  } 
+}
+
+.image{
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  @apply w-[300px] h-[250px] rounded-2xl bg-center bg-cover duration-500 flex flex-col-reverse border-2 mx-1;
+  @media screen and (min-width: 670px) {
+    @apply h-[330px] flex;
+  }
+  @media screen and (min-width: 950px) {
+    @apply h-[430px] flex;
+  }
+  @media screen and (min-width: 1050px) {
+    @apply w-[550px] h-[410px] flex;
+  }
+}
+
+// .imageLeft{
+//   flex: 0 0 auto;
+//   scroll-snap-align: center;
+//   @apply w-[300px] h-[250px] rounded-2xl bg-center bg-cover duration-500 flex flex-col-reverse border-2 mx-1 animate-fadeinDown;
+//   @media screen and (min-width: 670px) {
+//     @apply h-[330px] flex;
+//   }
+//   @media screen and (min-width: 950px) {
+//     @apply h-[430px] flex;
+//   }
+//   @media screen and (min-width: 1050px) {
+//     @apply w-[550px] h-[410px] flex;
+//   }
+//   @media screen and (min-width: 2000px) {
+//     @apply w-[375px] h-[350px] flex;
+//   } 
+//}
+
+
+// .primeiro{
+//   @apply -ml-72;
+//   @media screen and (min-width: 470px) {
+//     @apply -ml-60;
+//   }
+//   @media screen and (min-width: 500px) {
+//     @apply -ml-52;
+//   }
+//   @media screen and (min-width: 670px) {
+//     @apply -ml-60;
+//   }
+//   @media screen and (min-width: 700px) {
+//     @apply -ml-56;
+//   }
+//   @media screen and (min-width: 800px) {
+//     @apply -ml-56;
+//   }
+//   @media screen and (min-width: 1000px) {
+//     @apply -ml-60;
+//   }
+//   @media screen and (min-width: 1050px) {
+//     @apply -ml-[30rem] bg-black;
+//   }
+//   @media screen and (min-width: 1200px) {
+//     @apply -ml-96;
+//   }
+//   @media screen and (min-width: 1300px) {
+//     @apply -ml-[23rem] bg-black;
+//   }
+//   @media screen and (min-width: 1400px) {
+//     @apply -ml-[20rem] bg-black;
+//   }
+//   @media screen and (min-width: 1600px) {
+//     @apply -ml-[15rem] bg-black;
+//   }
+//   @media screen and (min-width: 1700px) {
+//     @apply -ml-[13rem] bg-black;
+//   }
+//   @media screen and (min-width: 1800px) {
+//     @apply -ml-[9rem] bg-black;
+//   }
+//   @media screen and (min-width: 1900px) {
+//     @apply -ml-[6rem] bg-black;
+//   }
+//   @media screen and (min-width: 2000px) {
+//     @apply -ml-[0] bg-black;
+//   }
+// }
+
+.principal{
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  @apply w-[300px] h-[270px] rounded-2xl bg-center bg-cover duration-500 flex flex-col justify-between border-2 border-black;
+  @apply transition-all;
+  @media screen and (min-width: 410px) {
+    @apply w-[350px] h-[290px] justify-between;
+  }
+  @media screen and (min-width: 670px) {
+    @apply w-[470px] h-[380px] justify-between;
+  }
+  @media screen and (min-width: 700px) {
+    @apply w-[500px] h-[410px] justify-between;
+    &:hover{
+      @apply border-black justify-between;
+    }
+  }
+}
+
+// .botaoLeft{
+//   @apply hidden  absolute top-[50%] -translate-x-0 translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer;
+// }
+
+.botoes{
+  @apply absolute top-[40%] flex flex-row justify-between w-full;
+  @media screen and (min-width: 1000px) {
+    @apply justify-around;
+  }
+}
+
+.botaoIcon{
+  @apply fill-white;
+}
+
+.botaoLeft{
+  pointer-events: all;
+  @apply  -translate-x-0 translate-y-[40%] left-5 text-2xl rounded-full p-2 bg-black/70 text-black cursor-pointer fill-white; 
+  @media screen and (min-width: $tablet) {
+    @apply hidden;
+  }
+}
+
+.botaoRight{
+  pointer-events: all;
+  @apply bg-black/70  -translate-x-0 translate-y-[40%] right-2 text-2xl rounded-full p-2 text-black cursor-pointer;
+  @media screen and (min-width: $tablet) {
+    @apply hidden;
+  }
+}
+
+.pontos{
+  pointer-events: all;
+  @apply hidden;
+    @media screen and (min-width: 1000px) {
+    @apply flex top-4 justify-center items-center py-2 flex-row flex-wrap w-1/2;
+    &__icons__unselected{
+      @apply text-black ease-out duration-300;
+    }
+    &__icons__selected{
+      @apply text-black animate-fadeIn w-8 h-8;
+    }
+    &__pontos{
+      @apply text-2xl cursor-pointer;
+    }
+ }
+}
+
+
+.loading::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px
+}
+
+.anima{
+  @apply animate-fadeInLeft duration-300;
+}
+
+
+.projetos2{
+  @apply flex flex-col w-11/12 my-7 animate-fadeinDownSlow h-full;
+  @media screen and (max-width: 2000px) {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+
+.imageLateral{
+  @apply h-full rounded-xl;
+}
+
+.imagePrincipal{
+  @apply h-full rounded-xl;
+}
+
+.imagePrincipal2{
+  @apply h-full rounded-xl;
+}
+
+// .imagePrincipal,
+// .imagePrincipal2 {
+//   transition: opacity 1s ease;
+//   opacity: 1;
+//   @apply animate-fadeInDownFull;
+// }
+
+.imagePrincipal2 {
+  display: none;
+  opacity: 0;
+}

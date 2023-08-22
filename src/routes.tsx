@@ -22,10 +22,10 @@ export default function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/lista" element={<Lista open={open} setOpen={setOpen} busca={busca} setBusca={setBusca} repositorio={repositorio} setRepositorio={setRepositorio} showPresenteEscolhido={showPresenteEscolhido} setShowPresenteEscolhido={setShowPresenteEscolhido}/>} />
+        {/* <Route path="/lista" element={<Lista open={open} setOpen={setOpen} busca={busca} setBusca={setBusca} repositorio={repositorio} setRepositorio={setRepositorio} showPresenteEscolhido={showPresenteEscolhido} setShowPresenteEscolhido={setShowPresenteEscolhido}/>} />
         <Route path="/adm" element={<Adm  repositorio={repositorio} setRepositorio={setRepositorio}/>} />
         <Route path="/presenca" element={<Presenca /> } />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} /> */}
       </Routes>
       <Rodape />
     </Router>

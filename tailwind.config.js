@@ -56,6 +56,11 @@ module.exports = {
           "0%": { transform: "rotate(0.0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        fadein: {
+          "0%" : { opacity: "0" },
+          "100%" : {opacity: "1" }
+        }
+        ,
         fadeInDown: {
           "0%": {
             opacity: "0",
@@ -125,6 +130,7 @@ module.exports = {
         pingStop: "ping 1s",
         flip: "flip 1s ease-in-out infinite",
         flipSlow: "flipSlow 2s",
+        fadeIn: "fadein 1s"
       },
     },
   },

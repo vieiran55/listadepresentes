@@ -63,7 +63,7 @@ export default function NavBar() {
     <div className={estilos.navbar}>
       {/* mobile */}
       <div className={estilos.mobile}>
-        <div className={estilos.menu}>
+        {/* <div className={estilos.menu}>
           <Stack>
             <Button
               ref={anchorRef}
@@ -157,7 +157,7 @@ export default function NavBar() {
               )}
             </Popper>
           </Stack>
-        </div>
+        </div> */}
         <div className={estilos.entrada__casal}>
           <h1 className={estilos.entrada__casal__titulo}>Gabriela e Antônio</h1>
         </div>
@@ -167,7 +167,7 @@ export default function NavBar() {
         <div className={estilos.entrada__casal}>
           <h1 className={estilos.entrada__casal__titulo}>Gabriela e Antônio</h1>
         </div>
-        <ol className={estilos.conteinerDesktop__opcoes}>
+        {/* <ol className={estilos.conteinerDesktop__opcoes}>
           <li className={estilos.conteinerDesktop__opcoes__links}>
             <Link to={"/presenca"} className={estilos.desktop__links}>
               <RiFilePaper2Line className={estilos.desktop__links__icons} />
@@ -213,8 +213,9 @@ export default function NavBar() {
               </div>
             </ScrollLink>
           </li>
-        </ol>
+        </ol> */}
       </div>
     </div>
   );
 }
+
