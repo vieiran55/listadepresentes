@@ -10,6 +10,7 @@ import Presenca from "./pages/Presenca";
 import GerecniarPresencas from "./pages/GerenciarPresencas";
 import GerenciarPresentesRecebidos from "./pages/GerenciarPresentesRecebidos";
 import Adm from "./pages/Adm";
+import Galeria from "./components/Galeria";
 
 
 export default function AppRouter() {
@@ -22,6 +23,7 @@ export default function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/galeria" element={<Galeria />} />
         {/* <Route path="/lista" element={<Lista open={open} setOpen={setOpen} busca={busca} setBusca={setBusca} repositorio={repositorio} setRepositorio={setRepositorio} showPresenteEscolhido={showPresenteEscolhido} setShowPresenteEscolhido={setShowPresenteEscolhido}/>} />
         <Route path="/adm" element={<Adm  repositorio={repositorio} setRepositorio={setRepositorio}/>} />
         <Route path="/presenca" element={<Presenca /> } />

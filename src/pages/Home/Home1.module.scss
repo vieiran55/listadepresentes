@@ -238,7 +238,7 @@
 .sobre {
   background: rgb(255,255,255);
   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(229,219,197,1) 30%);
-  @apply text-center ;
+  @apply text-center py-6;
   font-family: "Poppins", cursive;
   @media screen and (min-width: 767px) {
     @apply flex flex-col items-center justify-around;

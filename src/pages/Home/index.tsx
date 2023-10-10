@@ -4,6 +4,7 @@ import estilos from "./Home1.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 
+
 import fotoCasalDesenho from "../../images/casalDesenho.png";
 
 import CircularProgress from "@mui/joy/CircularProgress";
